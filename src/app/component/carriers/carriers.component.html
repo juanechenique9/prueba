@@ -1,0 +1,224 @@
+<div class="frente">
+  <nav class="navbar">
+    <div class="titulo">
+      <a>My Carriers</a>
+    </div>
+    <form class="form-inline">
+      <input
+        class="form-control2"
+        type="search"
+        placeholder="Test"
+        aria-label="Search"
+      />
+    </form>
+  </nav>
+</div>
+
+<div class="container">
+  <div>
+    <div class="head">
+      <div class="titulo1">
+        Search for My Carriers
+      </div>
+      <div class="titulo2">
+        <a
+          >Search and add a carrier<img
+            src="assets/img/add.jpg"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="busqueda">
+      <div>
+        <nav class="navbar2">
+          <form class="form-inline">
+            <input
+              class="form-control4"
+              (input)="buscarCarriers($event)"
+              type="text"
+              placeholder="Carrier Name, DOT#, MC#"
+              aria-label="Search"
+            />
+            <a class="busqueda1"
+              >Search
+              <img
+                src="assets/img/buscar.jpg"
+                alt="image"
+                width="12px"
+                height="12px"
+            /></a>
+          </form>
+        </nav>
+      </div>
+      <div class="lista">
+        
+      <button class="boto" type="button"></button>
+
+      <div class="form-group">
+      
+        <select [(ngModel)] = "selectedLista.id" (change)="onSelect($event.target.value)" class="form-control" id="exampleFormControlSelect1">
+          <option *ngFor = "let listica of listarNombre" value="{{listica.id}}">
+           {{listica.nombre}} 
+
+          </option>
+          
+        </select>
+      </div>  
+          
+       
+      </div>
+    </div>
+
+    <div class="contenedor" *ngFor="let habilidade of copyHabilidades">
+      <div class="row">
+        <div class="col-1">
+          <a class="circulo">{{habilidade.titulo | cambiar}}</a>
+        </div>
+        <div class="col-8">
+          <div class="titulo3">
+            <a>{{habilidade.titulo}}</a>
+          </div>
+
+          <div class="espacio">
+            <div class="contenedores">
+              <div class="gestor">
+                <div class="titulocabeza">{{habilidade.titulodos}}</div>
+                <div class="cuerpo">
+                  FMCSA Carrier Type: {{habilidade.FMCSACarrierType}}
+                </div>
+                <div class="cuerpo2">MC Number: {{habilidade.MCNumber}}</div>
+                <div class="cuerpo3">DOT Number: {{habilidade.DOTNumber}}</div>
+              </div>
+            </div>
+
+            <div class="contenedores2">
+              <div class="gestor">
+                <div class="titulocabeza">{{habilidade.titulotres}}</div>
+                <div class="cuerpo">
+                  DOT Insurance: {{habilidade.DOTInsurance}}
+                </div>
+                <div class="cuerpo2">
+                  MC Authority: {{habilidade.MCAuthority}}
+                </div>
+                <div class="cuerpo3">
+                  Safety Rating:
+                  <img
+                    src="assets/img/equis3.png"
+                    alt="image"
+                    width="11px"
+                    height="11px"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="contenedores3">
+              <div class="gestor">
+                <div class="titulocabeza">{{habilidade.titulocuatro}}</div>
+                <div class="row">
+                  <div class="col-5">
+                    <div class="ayuda">
+                      <div class="cuerpo"><a>Unsafe Driving:</a></div>
+                      <div class="cuerpo">
+                        <a
+                          >{{habilidade.UnsafeDriving}}
+                          <img
+                            src="assets/img/descarga.PNG"
+                            alt="image"
+                            width="9px"
+                            height="11px"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div class="ayuda">
+                      <div class="cuerpo"><a>HOS Compliance:</a></div>
+                      <div class="cuerpo">
+                        <a
+                          >{{habilidade.HOSCompliance}}
+                          <img
+                            src="assets/img/descarga.PNG"
+                            alt="image"
+                            width="9px"
+                            height="11px"
+                        /></a>
+                      </div>
+                    </div>
+                    <div class="ayuda">
+                      <div class="cuerpo"><a>Driver Fitness:</a></div>
+                      <div class="cuerpo">
+                        <a
+                          >{{habilidade.DriverFitness}}
+                          <img
+                            src="assets/img/descarga.PNG"
+                            alt="image"
+                            width="9px"
+                            height="11px"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4.5">
+                    <div class="ayuda">
+                      <div class="cuerpo"><a>Controlled Substance:</a></div>
+                      <div class="cuerpo">
+                        <a
+                          >{{habilidade.ControlledSubstance}}
+                          <img
+                            src="assets/img/descarga.PNG"
+                            alt="image"
+                            width="9px"
+                            height="11px"
+                        /></a>
+                      </div>
+                    </div>
+                    <div class="ayuda">
+                      <div class="cuerpo"><a>Vehicle Maintenance:</a></div>
+                      <div class="cuerpo">
+                        <a
+                          >{{habilidade.VehicleMaintenance}}
+                          <img
+                            src="assets/img/descarga.PNG"
+                            alt="image"
+                            width="9px"
+                            height="11px"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-2.5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="ana">
+            <div>
+              <img *ngIf="habilidade.isQualified == true"
+                            src="assets/img/qualifi.png"
+                            alt="image"
+                            width="120px"
+                            height="103px"
+                        />
+            
+              
+                        <img *ngIf="habilidade.isQualified == false"  
+                        src="assets/img/quialifin.png"
+                        alt="image"
+                        width="120px"
+                        height="103px"
+                    />
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+.dash{
+    display: flex;
+    justify-content: center;
+}
+.tipo1{
+    font-size: 8px;
+    color: white;
+    font-weight: 500;
+}
+
+
+.gestor{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.menu1{
+    padding: 0;
+}
+
+.centro1{
+    padding-top: 200px;
+}
+
+.centro2{
+    padding-top: 57px;
+}
+
+
+
+/*selector*/
+    .menu1 > li {  
+        text-align: center;
+        cursor: pointer;
+        
+        
+    }
+
+   
+
+
+
