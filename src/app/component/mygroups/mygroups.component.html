@@ -1,106 +1,147 @@
 <div class="frente">
-    <nav class="navbar">
-      <div class="titulo">
-        <a>My Groups</a>
+  <nav class="navbar">
+    <div class="titulo">
+      <a>My Groups</a>
+    </div>
+    <button class="boto" type="button">
+      Test<a
+        ><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
+      </a>
+    </button>
+  </nav>
+</div>
+
+<div class="container">
+  <div>
+    <div class="head">
+      <div class="titulo1">
+        Carrier Group List
       </div>
-      <button class="boto" type="button">
-       Test<a><img
-         src="assets/img/pi.PNG"
-         alt="image"
-         width="16px"
-         height="16px"
-       />
-       </a>
-      </button>
-    </nav>
-  </div>
+      <div class="titulo2">
+        <a (click)="agregarGrupo()"
+          >Add new group<img
+            src="assets/img/add.jpg"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="busqueda">
+      <nav class="navbar2">
+        <form class="form-inline">
+          <input
+            class="form-control4"
+            type="text"
+            placeholder="Search groups by name"
+            aria-label="Search"
+            (input)="buscarGrupo($event)"
+          />
+        </form>
+      </nav>
+      <div>
+        <a class="busqueda1"
+          >Search
+          <img
+            src="assets/img/buscar.jpg"
+            alt="image"
+            width="12px"
+            height="12px"
+        /></a>
+      </div>
+      <div>
+        <a class="busqueda2"
+          >Remove Filters
+          <img
+            src="assets/img/deletedos.svg"
+            alt="image"
+            width="15px"
+            height="16px"
+          />
+        </a>
+      </div>
+    </div>
 
-  <div class="container" >
-    <div>
-        <div class="head">
-            <div class="titulo1">
-                Carrier Group List
-              </div>
-              <div class="titulo2">
-                <a
-                  >Add new group<img
-                    src="assets/img/add.jpg"
-                    alt="image"
-                    width="16px"
-                    height="16px"
-                  />
-                </a>
-              </div>
-        </div>
-        <div class="busqueda">
-            
-              <nav class="navbar2">
-                <form class="form-inline">
-                  <input
-                    class="form-control4"
-                    type="text"
-                    placeholder="Search groups by name"
-                    aria-label="Search"
-                    (input)="buscarGrupo($event)"
-                  />
-                </form>
-              </nav>
-              <div>
-                  <a class="busqueda1"
-                    >Search
-                    <img
-                      src="assets/img/buscar.jpg"
-                      alt="image"
-                      width="12px"
-                      height="12px"
-                  /></a>
-                </div>
-                <div>
-                  <a class="busqueda2"
-                    >Remove Filters
-                    <img src="assets/img/deletedos.svg" alt="image" width="15px" height="16px"> 
-                  </a>
-                </div>
-            
-        </div>   
-        
-        <div class="gestorTabla" >
- 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th><th>Descripcion</th><th></th><th></th><th></th>
-                    </tr>
-                </thead>
-                
-                <tr *ngFor="let grupo of copygrupos">
-                    <td>{{grupo.name}}</td><td>{{grupo.descripcion}}</td><td> <a>View carrier list <img src="assets/img/car.svg" alt="image" width="18px"></a></td>
-                    <td><a (click)="editarGrupo(grupo)">Edit Group<img src="assets/img/editar.svg" alt="image" width="20px" height="16px"></a></td>
-                    <td><a>Delete Group<img src="assets/img/delete.svg" alt="image" width="20px" height="16px"></a></td>
-                </tr>
-               
-                
-            </table>
-        
-        </div>
+    <div class="gestorTabla">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Descripcion</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-        <div class="paginador">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      
-    </div> 
+        <tr *ngFor="let grupo of copygrupos;let i = index">
+          <td>
+            <span *ngIf="!isEditable">{{ grupo.name }} </span>
+            <input
+              type="text"
+              *ngIf="isEditable"
+              (blur)="editarGrupo()"
+              [(ngModel)]="grupo.name"
+              class="form-control"
+              [value]="grupo.name"
+            />
+          </td>
+          <td>
+            <span *ngIf="!isEditable">{{ grupo.descripcion }} </span>
+            <input
+              type="text"
+              *ngIf="isEditable"
+              (blur)="editarGrupo()"
+              [(ngModel)]="grupo.descripcion"
+              class="form-control"
+              [value]="grupo.descripcion"
+            />
+          </td>
+          <td>
+            <a
+              >View carrier list
+              <img src="assets/img/car.svg" alt="image" width="18px"
+            /></a>
+          </td>
+          <td>
+            <a (click)="editarGrupo()">
+              Edit Group<img
+                src="assets/img/editar.svg"
+                alt="image"
+                width="20px"
+                height="16px"
+            /></a>
+          </td>
+          <td>
+            <a (click)="eliminarGrupo(i)"
+              >Delete Group<img
+                src="assets/img/delete.svg"
+                alt="image"
+                width="20px"
+                height="16px"
+            /></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="paginador">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
+</div>

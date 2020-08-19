@@ -1,14 +1,8 @@
-import { Pipe, PipeTransform } from '@angular/core';
-
+import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-
-  transform(lista: any[], texto: string): any{
-  
-
-  }
-
+  transform(lista: any[], texto: string): any {}
 }

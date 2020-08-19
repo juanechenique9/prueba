@@ -200,7 +200,6 @@
   width: 1305;
   height: 40px;
   background-color: white;
-  ;
 }
 
 .container {
@@ -214,17 +213,17 @@
   margin: 0px;
 }
 
-.circulo{
+.circulo {
   background-color: lightsteelblue;
-    height: 32px;
-    border-radius: 162px;
-    width: 31px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 32px;
+  border-radius: 162px;
+  width: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-control{
+.form-control {
   height: 21px;
   width: 123px;
   padding-left: 0px;
@@ -234,7 +233,6 @@
   padding-right: 0px;
 }
 
-.form-group{
+.form-group {
   margin-bottom: 0px;
 }
-

@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DMSComponent } from './dms.component';
+import { DMSComponent } from './dms.component'
 
 describe('DMSComponent', () => {
-  let component: DMSComponent;
-  let fixture: ComponentFixture<DMSComponent>;
+  let component: DMSComponent
+  let fixture: ComponentFixture<DMSComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DMSComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [DMSComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DMSComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(DMSComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

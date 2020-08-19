@@ -1,32 +1,34 @@
-
-<div class="modal-header">
-  <h4 class="modal-title pull-left">{{title}}</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+<!--<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ title }}</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 
 <div class="modal-body">
-        <form [formGroup]="forma">
-            
-          
-                <label>Name:</label>
-               <input type="text" formControlName="name" placeholder="Name"><br>
-              
-             
-              
-                <label>Descripcion:</label>
-                <input type="text" formControlName="descripcion" placeholder="Descripcion">
-              
-            
-             
-            
-          </form>
+  <form [formGroup]="forma">
+    <label>Name:</label>
+    <input type="text" formControlName="name" placeholder="Name" /><br />
 
-    </div>
+    <label>Descripcion:</label>
+    <input
+      type="text"
+      formControlName="descripcion"
+      placeholder="Descripcion"
+    />
+  </form>
+</div>
 
-    <div class="modal-footer">
-      <button (click)="guardarCambios()" type="button" class="btn btn-primary">Guardar</button>
-      <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
-    </div>
-  
+<div class="modal-footer">
+  <button (click)="guardarCambios()" type="button" class="btn btn-primary">
+    Guardar
+  </button>
+  <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">
+    {{ closeBtnName }}
+  </button>
+</div>!-->

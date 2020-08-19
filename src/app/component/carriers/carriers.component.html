@@ -55,54 +55,58 @@
         </nav>
       </div>
       <div class="lista">
-        
-      <button class="boto" type="button"></button>
+        <button class="boto" type="button"></button>
 
-      <div class="form-group">
-      
-        <select [(ngModel)] = "selectedLista.id" (change)="onSelect($event.target.value)" class="form-control" id="exampleFormControlSelect1">
-          <option *ngFor = "let listica of listarNombre" value="{{listica.id}}">
-           {{listica.nombre}} 
-
-          </option>
-          
-        </select>
-      </div>  
-          
-       
+        <div class="form-group">
+          <select
+            [(ngModel)]="selectedLista.id"
+            (change)="onSelect($event.target.value)"
+            class="form-control"
+            id="exampleFormControlSelect1"
+          >
+            <option
+              *ngFor="let listica of listarNombre"
+              value="{{ listica.id }}"
+            >
+              {{ listica.nombre }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
     <div class="contenedor" *ngFor="let habilidade of copyHabilidades">
       <div class="row">
         <div class="col-1">
-          <a class="circulo">{{habilidade.titulo | cambiar}}</a>
+          <a class="circulo">{{ habilidade.titulo | cambiar }}</a>
         </div>
         <div class="col-8">
           <div class="titulo3">
-            <a>{{habilidade.titulo}}</a>
+            <a>{{ habilidade.titulo }}</a>
           </div>
 
           <div class="espacio">
             <div class="contenedores">
               <div class="gestor">
-                <div class="titulocabeza">{{habilidade.titulodos}}</div>
+                <div class="titulocabeza">{{ habilidade.titulodos }}</div>
                 <div class="cuerpo">
-                  FMCSA Carrier Type: {{habilidade.FMCSACarrierType}}
+                  FMCSA Carrier Type: {{ habilidade.FMCSACarrierType }}
                 </div>
-                <div class="cuerpo2">MC Number: {{habilidade.MCNumber}}</div>
-                <div class="cuerpo3">DOT Number: {{habilidade.DOTNumber}}</div>
+                <div class="cuerpo2">MC Number: {{ habilidade.MCNumber }}</div>
+                <div class="cuerpo3">
+                  DOT Number: {{ habilidade.DOTNumber }}
+                </div>
               </div>
             </div>
 
             <div class="contenedores2">
               <div class="gestor">
-                <div class="titulocabeza">{{habilidade.titulotres}}</div>
+                <div class="titulocabeza">{{ habilidade.titulotres }}</div>
                 <div class="cuerpo">
-                  DOT Insurance: {{habilidade.DOTInsurance}}
+                  DOT Insurance: {{ habilidade.DOTInsurance }}
                 </div>
                 <div class="cuerpo2">
-                  MC Authority: {{habilidade.MCAuthority}}
+                  MC Authority: {{ habilidade.MCAuthority }}
                 </div>
                 <div class="cuerpo3">
                   Safety Rating:
@@ -118,14 +122,14 @@
 
             <div class="contenedores3">
               <div class="gestor">
-                <div class="titulocabeza">{{habilidade.titulocuatro}}</div>
+                <div class="titulocabeza">{{ habilidade.titulocuatro }}</div>
                 <div class="row">
                   <div class="col-5">
                     <div class="ayuda">
                       <div class="cuerpo"><a>Unsafe Driving:</a></div>
                       <div class="cuerpo">
                         <a
-                          >{{habilidade.UnsafeDriving}}
+                          >{{ habilidade.UnsafeDriving }}
                           <img
                             src="assets/img/descarga.PNG"
                             alt="image"
@@ -139,7 +143,7 @@
                       <div class="cuerpo"><a>HOS Compliance:</a></div>
                       <div class="cuerpo">
                         <a
-                          >{{habilidade.HOSCompliance}}
+                          >{{ habilidade.HOSCompliance }}
                           <img
                             src="assets/img/descarga.PNG"
                             alt="image"
@@ -152,7 +156,7 @@
                       <div class="cuerpo"><a>Driver Fitness:</a></div>
                       <div class="cuerpo">
                         <a
-                          >{{habilidade.DriverFitness}}
+                          >{{ habilidade.DriverFitness }}
                           <img
                             src="assets/img/descarga.PNG"
                             alt="image"
@@ -167,7 +171,7 @@
                       <div class="cuerpo"><a>Controlled Substance:</a></div>
                       <div class="cuerpo">
                         <a
-                          >{{habilidade.ControlledSubstance}}
+                          >{{ habilidade.ControlledSubstance }}
                           <img
                             src="assets/img/descarga.PNG"
                             alt="image"
@@ -180,7 +184,7 @@
                       <div class="cuerpo"><a>Vehicle Maintenance:</a></div>
                       <div class="cuerpo">
                         <a
-                          >{{habilidade.VehicleMaintenance}}
+                          >{{ habilidade.VehicleMaintenance }}
                           <img
                             src="assets/img/descarga.PNG"
                             alt="image"
@@ -200,22 +204,22 @@
         <div class="col-3">
           <div class="ana">
             <div>
-              <img *ngIf="habilidade.isQualified == true"
-                            src="assets/img/qualifi.png"
-                            alt="image"
-                            width="120px"
-                            height="103px"
-                        />
-            
-              
-                        <img *ngIf="habilidade.isQualified == false"  
-                        src="assets/img/quialifin.png"
-                        alt="image"
-                        width="120px"
-                        height="103px"
-                    />
+              <img
+                *ngIf="habilidade.isQualified == true"
+                src="assets/img/qualifi.png"
+                alt="image"
+                width="120px"
+                height="103px"
+              />
 
-              </div>
+              <img
+                *ngIf="habilidade.isQualified == false"
+                src="assets/img/quialifin.png"
+                alt="image"
+                width="120px"
+                height="103px"
+              />
+            </div>
           </div>
         </div>
       </div>

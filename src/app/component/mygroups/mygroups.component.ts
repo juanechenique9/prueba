@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import{Grupos} from 'src/app/model/grupos';
-import{GruposdeService} from 'src/app/services/gruposde.service';
-import { GroupsEditarComponent } from './groups-editar.component';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Title } from '@angular/platform-browser';
-
-
+import { Component, OnInit } from '@angular/core'
+import { Grupos } from 'src/app/model/grupos'
+import { GruposdeService } from 'src/app/services/gruposde.service'
+import { GrupoAgregarComponent } from 'src/app/component/mygroups/grupo-agregar.component'
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 
 @Component({
   selector: 'app-mygroups',
@@ -13,71 +10,69 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./mygroups.component.css']
 })
 export class MygroupsComponent implements OnInit {
+  grupos: Array<Grupos> = new Array<Grupos>()
+  copygrupos: Array<Grupos> = new Array<Grupos>()
+  isEditable: boolean = false
+  bsModalRef: BsModalRef
 
-  grupos: Array<Grupos> =new Array<Grupos>()
-  copygrupos: Array<Grupos> = new Array<Grupos>();
-  bsModalRef: BsModalRef;
+  constructor (
+    private grupoInjectado: GruposdeService,
+    private modalService: BsModalService
+  ) {}
 
-
-  constructor(private grupoInjectado:GruposdeService,private modalService: BsModalService) { }
-
-  ngOnInit(): void {
-
-    this.insertar();
-
+  ngOnInit (): void {
+    this.insertar()
   }
 
-  
-  insertar(){
-    this.grupoInjectado.LeerGrupos().subscribe(gruposdesdeapi =>{
-      this.grupos = gruposdesdeapi
-      this.copygrupos = gruposdesdeapi
-    },
-     error => console.error(error)
-     
-     
+  insertar () {
+    this.grupoInjectado.LeerGrupos().subscribe(
+      gruposdesdeapi => {
+        this.grupos = gruposdesdeapi
+        this.copygrupos = gruposdesdeapi
+      },
+      error => console.error(error)
     )
-
   }
 
-  buscarGrupo(event){
+  buscarGrupo (event) {
+    let nombreGrupo: string = event.target.value
 
-   let nombreGrupo: string = event.target.value
-
-   if(nombreGrupo===""){
-
-    this.copygrupos = this.grupos;
-
-   }else{
-
-  this.copygrupos = this.grupos.filter(v=>{
-    return v.name.toLowerCase().includes(nombreGrupo)
-  })
-
-   }
-
-  }
-
- 
-
-editarGrupo(grupo:Grupos) {
-  
-  this.bsModalRef = this.modalService.show(GroupsEditarComponent,{
-
-
-    initialState:{
-      title:'Editar Grupo',
-      data:{Name: grupo.name, Descripciòn: grupo.descripcion}
+    if (nombreGrupo === '') {
+      this.copygrupos = this.grupos
+    } else {
+      this.copygrupos = this.grupos.filter(v => {
+        return v.name.toLowerCase().includes(nombreGrupo)
+      })
     }
+  }
 
+  eliminarGrupo (i: number) {
+    if (i == i) {
+      this.copygrupos.splice(i, 1)
+    } else {
+      this.copygrupos = this.copygrupos.filter(k => {
+        return k.id !== i
+      })
+    }
+  }
 
-  });
+  editarGrupo () {
+    this.isEditable = !this.isEditable
+  }
 
-  this.bsModalRef.content.closeBtnName = 'Close';
-  this.bsModalRef.setClass('modal-sm');
+  agregarGrupo () {
+    const initialState = {
+      title: 'Agregar'
+    }
+    this.bsModalRef = this.modalService.show(GrupoAgregarComponent, {
+      initialState
+    })
+    this.bsModalRef.content.closeBtnName = 'Close'
 
+    this.bsModalRef.content.data.subscribe(result => {
+      console.log('results', result)
+
+      this.copygrupos.push(result)
+    })
+  }
 }
-
-}
-
-

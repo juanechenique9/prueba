@@ -1,7 +1,5 @@
-export class Grupos{
-
-    id: number;
-    name: string;
-    descripcion:string;
-    
+export class Grupos {
+  id: number
+  name: string
+  descripcion: string
 }

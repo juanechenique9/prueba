@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing'
 
-import { GruposdeService } from './gruposde.service';
+import { GruposdeService } from './gruposde.service'
 
 describe('GruposdeService', () => {
-  let service: GruposdeService;
+  let service: GruposdeService
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(GruposdeService);
-  });
+    TestBed.configureTestingModule({})
+    service = TestBed.inject(GruposdeService)
+  })
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+    expect(service).toBeTruthy()
+  })
+})

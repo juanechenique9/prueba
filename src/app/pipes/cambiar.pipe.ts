@@ -6,25 +6,30 @@ import { Habilidades } from '../model/habilidades'
 })
 export class CambiarPipe implements PipeTransform {
   transform (value: string): string {
-    
-    value = value.toUpperCase();
-    let manda_palabra;
-    let palabra;
-    let a : "";
-    let b : "";
+    value = value.toUpperCase()
+    let manda_palabra
+    let palabra
+    let a: ''
+    let b: ''
+    let manda
 
-    
+    palabra = value.split(' ')
 
-    palabra = value.split(" ", 2);
-    
-    
-     a = palabra[0];
-     b = palabra[1];
+    console.log(palabra)
 
-     manda_palabra = (""+ a.charAt(0) + "" + ""+ b.charAt(0)+"");
-     
-     
-  
-    return manda_palabra
+    if (palabra.length == 1) {
+      a = palabra[0]
+
+      manda = '' + a.charAt(0)
+
+      return manda
+    } else {
+      a = palabra[0]
+      b = palabra[1]
+
+      manda_palabra = '' + a.charAt(0) + '' + '' + b.charAt(0) + ''
+
+      return manda_palabra
+    }
   }
 }
