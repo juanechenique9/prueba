@@ -37,6 +37,7 @@ import { ModalModule } from 'ngx-bootstrap/modal'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { GrupoAgregarComponent } from './component/mygroups/grupo-agregar.component'
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { GrupoAgregarComponent } from './component/mygroups/grupo-agregar.compon
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     NgbModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    NgxPaginationModule
   ],
 
   entryComponents: [GrupoAgregarComponent],

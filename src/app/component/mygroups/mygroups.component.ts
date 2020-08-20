@@ -14,6 +14,7 @@ export class MygroupsComponent implements OnInit {
   copygrupos: Array<Grupos> = new Array<Grupos>()
   isEditable: boolean = false
   bsModalRef: BsModalRef
+  pageActual: number
 
   constructor (
     private grupoInjectado: GruposdeService,
@@ -47,7 +48,7 @@ export class MygroupsComponent implements OnInit {
   }
 
   eliminarGrupo (i: number) {
-    if (i == i) {
+    if ((this.pageActual = this.pageActual)) {
       this.copygrupos.splice(i, 1)
     } else {
       this.copygrupos = this.copygrupos.filter(k => {

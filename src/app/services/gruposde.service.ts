@@ -9,7 +9,7 @@ import { Observable } from 'rxjs'
 export class GruposdeService {
   grupos: Grupos = new Grupos()
 
-  ruta: string = 'https://run.mocky.io/v3/48bd5473-8208-4932-8666-d2c3829716e4'
+  ruta: string = 'https://run.mocky.io/v3/ee9c6d5b-1c48-41e7-b97e-b20183be1be8'
 
   constructor (private http: HttpClient) {}
 
