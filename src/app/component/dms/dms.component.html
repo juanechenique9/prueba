@@ -1,1 +1,214 @@
+<<<<<<< HEAD
 <p>dms works!</p>
+=======
+<div class="frente">
+  <nav class="navbar">
+    <div class="titulo">
+      <a>DMS</a>
+    </div>
+    <button class="boto" type="button">
+      Test<a
+        ><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
+      </a>
+    </button>
+  </nav>
+</div>
+
+<div class="container">
+  <div>
+    <tabset>
+      <tab heading="Document status">
+        <div class="head">
+          <div class="titulo1">Search for a Carrier Document</div>
+        </div>
+
+        <div class="busqueda">
+          <nav class="navbar2">
+            <form class="form-inline">
+              <input
+                class="form-control4"
+                type="text"
+                placeholder="Carrier name, DOT number"
+                aria-label="Search"
+                (input)="buscarCarrier($event)"
+              />
+            </form>
+          </nav>
+          <div>
+            <a class="busqueda1"
+              >Search
+              <img
+                src="assets/img/buscar.jpg"
+                alt="image"
+                width="12px"
+                height="12px"
+            /></a>
+          </div>
+          <div>
+            <a class="busqueda2"
+              >Remove Filters
+              <img
+                src="assets/img/deletedos.svg"
+                alt="image"
+                width="15px"
+                height="16px"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="GestorCarrier"
+          *ngFor="let habilidade of copyHabilidades; let i = index"
+        >
+          <div class="Divtitulo">
+            <div class="Encabezadotitulo">
+              <span>{{ habilidade.titulo }}</span>
+            </div>
+            <div class="Encabezadotitulo2">
+              <a class="usuario">
+                <img
+                  src="assets/img/person.svg"
+                  alt="image"
+                  width="19px"
+                  height="19px"
+              /></a>
+              <span *ngIf="habilidade.contactdesignated == false"
+                >No DRC Contact Designated</span
+              >
+              <span *ngIf="habilidade.contactdesignated == true"
+                >DRC Contact Added</span
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="cuadrado">
+                <div class="cuadrado2">
+                  <span>Carrier Information</span>
+                </div>
+
+                <div class="distribuidor">
+                  <div class="dis1">
+                    <a> Carrier Address:</a>
+                    <a> City and state:</a>
+                    <a> Postal code:</a>
+                    <a> Dot Number:</a>
+                    <a> MC Number:</a>
+                    <a> FMCSA Carrier Type:</a>
+                    <a> Authority:</a>
+                    <a> Insurance:</a>
+                  </div>
+                  <div class="dis2">
+                    <a> {{ habilidade.CarrierAddress }}</a>
+                    <a> {{ habilidade.Cityandstate }}</a>
+                    <a> {{ habilidade.Postalcode }}</a>
+                    <a> {{ habilidade.DOTNumber }}</a>
+                    <a> {{ habilidade.MCNumber }}</a>
+                    <a> {{ habilidade.FMCSACarrierType }}</a>
+                    <a> {{ habilidade.MCAuthority }}</a>
+                    <a> {{ habilidade.DOTInsurance }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="cuadrados">
+                <div>Documents</div>
+                <div class="verificar">
+                  <a class="usuario">
+                    <img
+                      src="assets/img/equis3.png"
+                      alt="image"
+                      width="11px"
+                      height="11px"
+                    /> </a
+                  >Documents not verified
+                </div>
+              </div>
+
+              <div class="TablaDMS">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Documents Name</th>
+                      <th>Request Date</th>
+                      <th>Received Date</th>
+                      <th>Expiration Date</th>
+                      <th>Status</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tr *ngFor="let leer of habilidade.dms; let i = index">
+                    <td>
+                      <a class="documento"
+                        ><img
+                          src="assets/img/help.svg"
+                          alt="image"
+                          width="13px"
+                          height="13px" /></a
+                      ><span>{{ leer.DocumentsName }}</span>
+                    </td>
+                    <td>
+                      <span>{{ leer.RequestDate }} </span>
+                    </td>
+                    <td>
+                      <span>{{ leer.RequestDate2 }}</span>
+                    </td>
+                    <td>
+                      <span>{{ leer.ExpirationDate }}</span>
+                    </td>
+                    <td>
+                      <span *ngIf="!estado[i]">{{ leer.status1 }}</span>
+                      <span *ngIf="estado[i]">{{ leer.status2 }}</span>
+                    </td>
+
+                    <td>
+                      <div class="btn-group" dropdown>
+                        <button
+                          id="button-state-change"
+                          dropdownToggle
+                          type="button"
+                          class="toogle dropdownToggle"
+                          aria-controls="dropdown-state-change"
+                        ></button>
+                        <ul
+                          id="dropdown-state-change"
+                          *dropdownMenu
+                          class="dropdown-menu"
+                          role="menu"
+                          aria-labelledby="button-state-change"
+                        >
+                          <li role="menuitem">
+                            <a
+                              *ngIf="!estado[i]"
+                              class="dropdown-item"
+                              (click)="cambiarEstado(i)"
+                              >Request</a
+                            >
+                          </li>
+                          <li role="menuitem">
+                            <a
+                              *ngIf="estado[i]"
+                              class="dropdown-item"
+                              (click)="cambiarEstado(i)"
+                              >Missing</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab heading="Document settings">Basic content 1</tab>
+    </tabset>
+  </div>
+</div>
+>>>>>>> 5ed27f6... version 5

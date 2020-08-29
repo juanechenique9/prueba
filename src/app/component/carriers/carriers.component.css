@@ -91,7 +91,11 @@
   border-radius: 0.25rem;
   background-color: white;
   border: 1px solid #ced4da;
+<<<<<<< HEAD
   background-image: url(C:\Users\juanc\Desktop\Angular\prueba2\src\assets\img\center.PNG);
+=======
+  background-image: url(C:\Users\juanc\OneDrive\Desktop\ANGULAR\prueba3\src\assets\img\center.PNG);
+>>>>>>> 5ed27f6... version 5
   background-repeat: no-repeat;
   background-position: center;
   background-size: 10px;

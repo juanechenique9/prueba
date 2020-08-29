@@ -23,6 +23,11 @@ import { FilterPipe } from './pipes/filter.pipe'
 import { GruposdeService } from './services/gruposde.service'
 import { CarriersService } from './services/carriers.service'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
+<<<<<<< HEAD
+=======
+import {DmsService} from './services/dms.service'
+import {DocumentosService} from './services/documentos.service'
+>>>>>>> 5ed27f6... version 5
 
 //Modulos
 import { MatDialogModule } from '@angular/material/dialog'
@@ -38,6 +43,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { GrupoAgregarComponent } from './component/mygroups/grupo-agregar.component'
 import { NgxPaginationModule } from 'ngx-pagination'
+<<<<<<< HEAD
+=======
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+>>>>>>> 5ed27f6... version 5
 
 @NgModule({
   declarations: [
@@ -69,12 +79,23 @@ import { NgxPaginationModule } from 'ngx-pagination'
     ModalModule.forRoot(),
     NgbModule,
     ButtonsModule.forRoot(),
+<<<<<<< HEAD
     NgxPaginationModule
+=======
+    TabsModule.forRoot(),
+    NgxPaginationModule,
+    BsDropdownModule.forRoot()
+   
+>>>>>>> 5ed27f6... version 5
   ],
 
   entryComponents: [GrupoAgregarComponent],
 
+<<<<<<< HEAD
   providers: [CarriersService, GruposdeService],
+=======
+  providers: [CarriersService, GruposdeService,DmsService,DocumentosService],
+>>>>>>> 5ed27f6... version 5
   bootstrap: [AppComponent]
 })
 export class AppModule {}
