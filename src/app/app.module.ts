@@ -23,11 +23,9 @@ import { FilterPipe } from './pipes/filter.pipe'
 import { GruposdeService } from './services/gruposde.service'
 import { CarriersService } from './services/carriers.service'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
-<<<<<<< HEAD
-=======
-import {DmsService} from './services/dms.service'
-import {DocumentosService} from './services/documentos.service'
->>>>>>> 5ed27f6... version 5
+
+import { DmsService } from './services/dms.service'
+import { DocumentosService } from './services/documentos.service'
 
 //Modulos
 import { MatDialogModule } from '@angular/material/dialog'
@@ -43,11 +41,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { ButtonsModule } from 'ngx-bootstrap/buttons'
 import { GrupoAgregarComponent } from './component/mygroups/grupo-agregar.component'
 import { NgxPaginationModule } from 'ngx-pagination'
-<<<<<<< HEAD
-=======
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
->>>>>>> 5ed27f6... version 5
+import { UiSwitchModule } from 'ngx-ui-switch'
+import { TabsModule } from 'ngx-bootstrap/tabs'
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
 
 @NgModule({
   declarations: [
@@ -66,7 +62,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     FilterPipe,
     CambiarPipe,
     IsImagenPipe,
-    GrupoAgregarComponent
+    GrupoAgregarComponent,
   ],
   imports: [
     FormsModule,
@@ -79,23 +75,17 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ModalModule.forRoot(),
     NgbModule,
     ButtonsModule.forRoot(),
-<<<<<<< HEAD
-    NgxPaginationModule
-=======
+    NgxPaginationModule,
     TabsModule.forRoot(),
     NgxPaginationModule,
-    BsDropdownModule.forRoot()
-   
->>>>>>> 5ed27f6... version 5
+    BsDropdownModule.forRoot(),
+    UiSwitchModule,
   ],
 
   entryComponents: [GrupoAgregarComponent],
 
-<<<<<<< HEAD
-  providers: [CarriersService, GruposdeService],
-=======
-  providers: [CarriersService, GruposdeService,DmsService,DocumentosService],
->>>>>>> 5ed27f6... version 5
-  bootstrap: [AppComponent]
+  providers: [CarriersService, GruposdeService, DmsService, DocumentosService],
+
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

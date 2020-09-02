@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<p>dms works!</p>
-=======
 <div class="frente">
   <nav class="navbar">
     <div class="titulo">
@@ -73,12 +70,7 @@
                   width="19px"
                   height="19px"
               /></a>
-              <span *ngIf="habilidade.contactdesignated == false"
-                >No DRC Contact Designated</span
-              >
-              <span *ngIf="habilidade.contactdesignated == true"
-                >DRC Contact Added</span
-              >
+              <span>{{ habilidade.contactname | isImagen }}</span>
             </div>
           </div>
 
@@ -119,12 +111,28 @@
                 <div class="verificar">
                   <a class="usuario">
                     <img
+                      *ngIf="habilidade.verified == false"
                       src="assets/img/equis3.png"
                       alt="image"
                       width="11px"
                       height="11px"
-                    /> </a
-                  >Documents not verified
+                    />
+                  </a>
+
+                  <a class="usuario">
+                    <img
+                      *ngIf="habilidade.verified == true"
+                      src="assets/img/visto.jpg"
+                      alt="image"
+                      width="15px"
+                      height="14px"
+                    />
+                  </a>
+                  {{
+                    habilidade.verified
+                      ? 'Documents verified'
+                      : 'Documents Not verified'
+                  }}
                 </div>
               </div>
 
@@ -141,7 +149,7 @@
                     </tr>
                   </thead>
 
-                  <tr *ngFor="let leer of habilidade.dms; let i = index">
+                  <tr *ngFor="let doc of habilidade.dms; let i = index">
                     <td>
                       <a class="documento"
                         ><img
@@ -149,20 +157,19 @@
                           alt="image"
                           width="13px"
                           height="13px" /></a
-                      ><span>{{ leer.DocumentsName }}</span>
+                      ><span>{{ doc.DocumentsName }}</span>
                     </td>
                     <td>
-                      <span>{{ leer.RequestDate }} </span>
+                      <span>{{ doc.RequestDate }} </span>
                     </td>
                     <td>
-                      <span>{{ leer.RequestDate2 }}</span>
+                      <span>{{ doc.RequestDate2 }}</span>
                     </td>
                     <td>
-                      <span>{{ leer.ExpirationDate }}</span>
+                      <span>{{ doc.ExpirationDate }}</span>
                     </td>
                     <td>
-                      <span *ngIf="!estado[i]">{{ leer.status1 }}</span>
-                      <span *ngIf="estado[i]">{{ leer.status2 }}</span>
+                      <span>{{ doc.status }}</span>
                     </td>
 
                     <td>
@@ -183,18 +190,11 @@
                         >
                           <li role="menuitem">
                             <a
-                              *ngIf="!estado[i]"
                               class="dropdown-item"
-                              (click)="cambiarEstado(i)"
+                              (click)="
+                                cambiarEstado(habilidade.id, doc.id_demo)
+                              "
                               >Request</a
-                            >
-                          </li>
-                          <li role="menuitem">
-                            <a
-                              *ngIf="estado[i]"
-                              class="dropdown-item"
-                              (click)="cambiarEstado(i)"
-                              >Missing</a
                             >
                           </li>
                         </ul>
@@ -207,8 +207,92 @@
           </div>
         </div>
       </tab>
-      <tab heading="Document settings">Basic content 1</tab>
+      <tab heading="Document settings">
+        <div>
+          <div class="head">
+            <div class="titulo1">Search for a Carrier Document</div>
+            <div class="titulo2">
+              <a
+                >Add Document<img
+                  src="assets/img/add.jpg"
+                  alt="image"
+                  width="16px"
+                  height="16px"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="busqueda">
+            <nav class="navbar2">
+              <form class="form-inline">
+                <input
+                  class="form-control4"
+                  type="text"
+                  placeholder="Carrier name, DOT number"
+                  aria-label="Search"
+                  (input)="buscarCarrier($event)"
+                />
+              </form>
+            </nav>
+            <div>
+              <a class="busqueda1"
+                >Search
+                <img
+                  src="assets/img/buscar.jpg"
+                  alt="image"
+                  width="12px"
+                  height="12px"
+              /></a>
+            </div>
+            <div>
+              <a class="busqueda2"
+                >Remove Filters
+                <img
+                  src="assets/img/deletedos.svg"
+                  alt="image"
+                  width="15px"
+                  height="16px"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="gestorTabla">
+            <table class="gestorDms">
+              <thead>
+                <tr>
+                  <th>Document Name</th>
+                  <th>Provider Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tr *ngFor="let documentos of copiDms">
+                <td>
+                  <span>{{ documentos.documentName }} </span>
+                </td>
+                <td>
+                  <span>{{ documentos.providerType }} </span>
+                </td>
+
+                <td>
+                  <a>
+                    Edit<img
+                      src="assets/img/editar.svg"
+                      alt="image"
+                      width="20px"
+                      height="16px"
+                  /></a>
+                  <a>
+                    <ui-switch checked></ui-switch>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </tab>
     </tabset>
   </div>
 </div>
->>>>>>> 5ed27f6... version 5

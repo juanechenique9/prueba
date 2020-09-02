@@ -4,21 +4,18 @@ import { Pipe, PipeTransform } from '@angular/core'
   name: 'isImagen',
 })
 export class IsImagenPipe implements PipeTransform {
-  transform(value: boolean): any {
-    let img = document.createElement('img')
+  transform(value: string, todas: boolean = true): string {
+    value = value.toLocaleLowerCase()
+    let nombres = value.split(' ')
 
-    if (value == true) {
-      img.setAttribute('src', 'assets/img/qualifi.png')
-      img.setAttribute('alt', 'image')
-      document.body.appendChild(img)
+    if (todas) {
+      nombres = nombres.map((nombres) => {
+        return nombres[0].toUpperCase() + nombres.substr(1)
+      })
     } else {
-      img.setAttribute('src', 'assets/img/quialifin.png')
-      img.setAttribute('alt', 'image')
-      document.body.appendChild(img)
+      nombres[0] = nombres[0][0].toUpperCase() + nombres[0].substr(1)
     }
 
-    console.log(img)
-
-    return img
+    return nombres.join(' ')
   }
 }

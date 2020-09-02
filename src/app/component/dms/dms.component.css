@@ -1,240 +1,249 @@
 .titulo {
-    font-weight: 380;
-    font-size: 0.9rem;
-  }
-  
-  .frente {
-    width: 1305;
-    height: 40px;
-    background-color: white;
-  }
-  
-  .boto {
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    width: 85px;
-    height: 25px;
-    font-size: 0.9rem;
-    font-weight: 200;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .container {
-    margin-top: 20px;
-    width: 920px;
-    background-color: white;
-  }
-  
-  .head {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 11px;
-  }
-  
-  .titulo1 {
-    font-size: 17px;
-    font-weight: 500;
-  }
-  
-  .busqueda {
-    display: flex;
-    padding-top: 14px;
-    margin-bottom: 30px;
-  }
-  
-  .navbar2 {
-    padding: 0px;
-    margin: 0px;
-  }
-  
-  .form-control4 {
-    height: 26px;
-    width: 181px;
-    font-size: 8.5px;
-    padding: 0.375rem 0.75rem;
-    font-weight: 100;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin-right: 1rem;
-  }
-  
-  .busqueda1 {
-    font-size: 10px;
-    color: blue;
-    font-weight: 100;
-    cursor: pointer;
-    margin-right: 2rem;
-  }
-  
-  .busqueda2 {
-    font-size: 10px;
-    color: blue;
-    font-weight: 100;
-    cursor: pointer;
-  }
-  
-  .GestorCarrier {
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding-bottom: 13px;
-    margin-bottom: 2px
-  }
-  
-  .Divtitulo {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  .Encabezadotitulo {
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  .Encabezadotitulo2 {
-    display: flex;
-    align-items: flex-end;
-    font-size: 10px;
-    font-weight: 500;
-  }
-  
-  .usuario {
-    margin-right: 4px;
-  }
-  
-  .row {
-    margin-left: -4px;
-    margin-right: 0px;
-  }
+  font-weight: 380;
+  font-size: 0.9rem;
+}
 
-  .col-8{
-    padding-left: 0px;
-    padding-right: 9px;
-  }
-  
-  .cuadrado {
-    background: lightcyan;
-  }
-  
-  .cuadrado2 {
-    font-size: 13px;
-    font-weight: 500;
-    padding: 4px;
-    
-  }
-  
-  .distribuidor {
-    display: flex;
-    justify-content: space-between;
-    height: 216px;
-  }
-  
-  .dis1 {
-    padding-left: 4px;
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    font-weight: 300;
-  }
-  
-  .dis2 {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    font-weight: 500;
-    padding-right: 16px;
-  }
-  
-  .cuadrados {
-    background: lightcyan;
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 4px;
-    
-  }
-  
-  .verificar {
-    font-size: 10px;
-    font-weight: 500;
-    display: flex;
-    align-items: flex-end;
-  }
+.frente {
+  width: 1305;
+  height: 40px;
+  background-color: white;
+}
 
-  .TablaDMS{
-    background: lightcyan;
-    padding: 3px;
-    height: 216px;
-    
-   
-  }
+.boto {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 85px;
+  height: 25px;
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  display: flex;
+  justify-content: space-around;
+}
 
-  table th{
-    font-size: 11px;
-    font-weight: 500;
-  }
+.container {
+  margin-top: 20px;
+  width: 920px;
+  background-color: white;
+}
 
-  table td:nth-child(1) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 39%;
-    padding-top: 10px;
-  }
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 11px;
+}
 
-  table td:nth-child(2) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 17%;
-    padding-top: 10px;
-  }
+.titulo1 {
+  font-size: 17px;
+  font-weight: 500;
+}
 
-  table td:nth-child(3) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 17%;
-    padding-top: 10px;
-  }
+.titulo2 {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: blue;
+  font-weight: 100;
+  cursor: pointer;
+}
 
-  table td:nth-child(4) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 17%;
-    padding-top: 10px;
-  }
+.busqueda {
+  display: flex;
+  padding-top: 14px;
+  margin-bottom: 30px;
+}
 
-  table td:nth-child(5) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 16%;
-    padding-top: 10px;
-  }
+.navbar2 {
+  padding: 0px;
+  margin: 0px;
+}
 
-  table td:nth-child(6) {
-    font-size: 11px;
-    font-weight: 100;
-    width: 4%;
-    padding-top: 10px;
-  }
+.form-control4 {
+  height: 26px;
+  width: 181px;
+  font-size: 8.5px;
+  padding: 0.375rem 0.75rem;
+  font-weight: 100;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-right: 1rem;
+}
 
-.documento{
+.busqueda1 {
+  font-size: 10px;
+  color: blue;
+  font-weight: 100;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.busqueda2 {
+  font-size: 10px;
+  color: blue;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.GestorCarrier {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding-bottom: 13px;
+  margin-bottom: 2px;
+}
+
+.gestorTabla {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 8px;
+}
+
+.Divtitulo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.Encabezadotitulo {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.Encabezadotitulo2 {
+  display: flex;
+  align-items: flex-end;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.usuario {
+  margin-right: 4px;
+}
+
+.row {
+  margin-left: -4px;
+  margin-right: 0px;
+}
+
+.col-8 {
+  padding-left: 0px;
+  padding-right: 9px;
+}
+
+.cuadrado {
+  background: lightcyan;
+}
+
+.cuadrado2 {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.distribuidor {
+  display: flex;
+  justify-content: space-between;
+  height: 216px;
+}
+
+.dis1 {
+  padding-left: 4px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.dis2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 500;
+  padding-right: 16px;
+}
+
+.cuadrados {
+  background: lightcyan;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.verificar {
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+}
+
+.TablaDMS {
+  background: lightcyan;
+  padding: 3px;
+  height: 216px;
+}
+
+table th {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+table td:nth-child(1) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 39%;
+  padding-top: 10px;
+}
+
+table td:nth-child(2) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 17%;
+  padding-top: 10px;
+}
+
+table td:nth-child(3) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 17%;
+  padding-top: 10px;
+}
+
+table td:nth-child(4) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 17%;
+  padding-top: 10px;
+}
+
+table td:nth-child(5) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 16%;
+  padding-top: 10px;
+}
+
+table td:nth-child(6) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 4%;
+  padding-top: 10px;
+}
+
+.documento {
   margin-right: 5px;
 }
 
-
 .toogle {
- 
   height: 19px;
   border-radius: 0.25rem;
   background-color: lightcyan;
@@ -243,14 +252,47 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
-
 }
 
-.dropdown-item{
+.dropdown-item {
   cursor: pointer;
 }
 
+.gestorDms {
+  width: 100%;
+}
 
+.gestorDms th {
+  font-size: 12px;
+  padding: 10px;
+}
 
-  
-  
+.gestorDms td:nth-child(1) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 31%;
+  padding: 10px;
+}
+
+.gestorDms td:nth-child(2) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 45%;
+  padding: 10px;
+}
+
+.gestorDms td:nth-child(3) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 30%;
+  padding: 10px;
+}
+
+.gestorDms tr:nth-child(even) {
+  background-color: #b8daff;
+}
+
+.gestorDms tr:hover td {
+  background-color: #369681;
+  color: white;
+}

@@ -76,15 +76,6 @@
         </thead>
 
         <tr
-<<<<<<< HEAD
-          *ngFor="let grupo of copygrupos | paginate:{itemsPerPage:4,currentPage:pageActual}; let i = index"
-        >
-          <td>
-            <span *ngIf="!isEditable">{{ grupo.name }} </span>
-            <input
-              type="text"
-              *ngIf="isEditable"
-=======
           *ngFor="let grupo of copygrupos | paginate:{itemsPerPage:4,currentPage:p}; let i = index"
         >
           <td>
@@ -92,7 +83,6 @@
             <input
               type="text"
               *ngIf="isEditable[i]"
->>>>>>> 5ed27f6... version 5
               (blur)="editarGrupo()"
               [(ngModel)]="grupo.name"
               class="form-control"
@@ -100,17 +90,10 @@
             />
           </td>
           <td>
-<<<<<<< HEAD
-            <span *ngIf="!isEditable">{{ grupo.descripcion }} </span>
-            <input
-              type="text"
-              *ngIf="isEditable"
-=======
             <span *ngIf="!isEditable[i]">{{ grupo.descripcion }} </span>
             <input
               type="text"
               *ngIf="isEditable[i]"
->>>>>>> 5ed27f6... version 5
               (blur)="editarGrupo()"
               [(ngModel)]="grupo.descripcion"
               class="form-control"
@@ -124,11 +107,7 @@
             /></a>
           </td>
           <td>
-<<<<<<< HEAD
-            <a (click)="editarGrupo()">
-=======
             <a (click)="editarGrupo(i)">
->>>>>>> 5ed27f6... version 5
               Edit Group<img
                 src="assets/img/editar.svg"
                 alt="image"
@@ -137,11 +116,7 @@
             /></a>
           </td>
           <td>
-<<<<<<< HEAD
-            <a (click)="eliminarGrupo(i)"
-=======
             <a (click)="eliminarGrupo(grupo.id)"
->>>>>>> 5ed27f6... version 5
               >Delete Group<img
                 src="assets/img/delete.svg"
                 alt="image"
@@ -154,11 +129,7 @@
     </div>
     <div class="pagina">
       <pagination-controls
-<<<<<<< HEAD
-        (pageChange)="pageActual = $event"
-=======
-      (pageChange)="handlePageChange($event)"
->>>>>>> 5ed27f6... version 5
+        (pageChange)="handlePageChange($event)"
       ></pagination-controls>
     </div>
   </div>

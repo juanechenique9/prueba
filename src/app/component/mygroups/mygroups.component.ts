@@ -12,16 +12,14 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 export class MygroupsComponent implements OnInit {
   grupos: Array<Grupos> = new Array<Grupos>()
   copygrupos: Array<Grupos> = new Array<Grupos>()
-<<<<<<< HEAD
-  isEditable: boolean = false
-  bsModalRef: BsModalRef
-  pageActual: number
-=======
+
   isEditable = []
   bsModalRef: BsModalRef
   p: number
   itemsPerPage: number = 4
->>>>>>> 5ed27f6... version 5
+  
+
+
 
   constructor (
     private grupoInjectado: GruposdeService,
@@ -54,26 +52,10 @@ export class MygroupsComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-  eliminarGrupo (i: number) {
-    if ((this.pageActual = this.pageActual)) {
-      this.copygrupos.splice(i, 1)
-    } else {
-      this.copygrupos = this.copygrupos.filter(k => {
-        return k.id !== i
-      })
-    }
-  }
-
-  editarGrupo () {
-    this.isEditable = !this.isEditable
-=======
-  eliminarGrupo (id: number) {
-    
+  eliminarGrupo (id) {
     this.copygrupos = this.copygrupos.filter(k => {
       return k.id !== id
     })
-    
   }
 
   editarGrupo (i: number) {
@@ -85,7 +67,6 @@ export class MygroupsComponent implements OnInit {
   handlePageChange (event) {
     this.p = event
     this.isEditable = []
->>>>>>> 5ed27f6... version 5
   }
 
   agregarGrupo () {

@@ -1,18 +1,11 @@
 export class Habilidades {
-<<<<<<< HEAD
-=======
-  id:number
->>>>>>> 5ed27f6... version 5
+  id: number
   titulo: string
   titulodos: string
   titulotres: string
   titulocuatro: string
   FMCSACarrierType: string
-<<<<<<< HEAD
-  MCNumber: string
-=======
   MCNumber: any
->>>>>>> 5ed27f6... version 5
   DOTNumber: number
   DOTInsurance: string
   MCAuthority: string
@@ -23,12 +16,10 @@ export class Habilidades {
   ControlledSubstance: number
   VehicleMaintenance: number
   isQualified: boolean
-<<<<<<< HEAD
-=======
   CarrierAddress: string
   Cityandstate: string
   Postalcode: number
-  contactdesignated: boolean
-  dms: Array<any> 
->>>>>>> 5ed27f6... version 5
+  contactname: string
+  verified: boolean
+  dms: Array<any>
 }

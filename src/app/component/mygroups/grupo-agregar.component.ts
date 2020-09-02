@@ -17,10 +17,9 @@ export class GrupoAgregarComponent implements OnInit {
 
   constructor (public fb: FormBuilder, public bsModalRef: BsModalRef) {
     this.forma = fb.group({
-<<<<<<< HEAD
-=======
+
       id: Math.random(),
->>>>>>> 5ed27f6... version 5
+
       name: '',
       descripcion: ''
     })
