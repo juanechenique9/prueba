@@ -3,6 +3,8 @@ import { Habilidades } from 'src/app/model/habilidades'
 import { CarriersService } from 'src/app/services/carriers.service'
 import { DmsService } from 'src/app/services/dms.service'
 import { listaCarrier } from 'src/app/model/listaCarrier'
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
+import { DmsAgregarComponent } from 'src/app/component/dms/dms-agregar.component'
 
 @Component({
   selector: 'app-dms',
@@ -14,10 +16,15 @@ export class DMSComponent implements OnInit {
   copyHabilidades: Array<Habilidades> = new Array<Habilidades>()
   dms: Array<listaCarrier> = new Array<listaCarrier>()
   copiDms: Array<listaCarrier> = new Array<listaCarrier>()
+  isEditado = []
+  bsModalRef: BsModalRef
+  e: number
+  itemsPerPage: number = 4
 
   constructor(
     private CarrierInjectado: CarriersService,
-    private DmsInjectado: DmsService
+    private DmsInjectado: DmsService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +71,24 @@ export class DMSComponent implements OnInit {
     })
   }
 
+  buscarDms(event) {
+    let buscarDocumento: string = event.target.value
+
+    if (buscarDocumento == ' ') {
+      this.copiDms = this.dms
+    } else {
+      this.copiDms = this.dms.filter((v) => {
+        return v.documentName.toLocaleLowerCase().includes(buscarDocumento)
+      })
+    }
+  }
+
+  editDocuments(p: number) {
+    this.isEditado = []
+
+    this.isEditado[p] = !this.isEditado[p]
+  }
+
   buscarCarrier(event) {
     let nombreBuscar: string = event.target.value
 
@@ -74,5 +99,26 @@ export class DMSComponent implements OnInit {
         return x.titulo.toLowerCase().includes(nombreBuscar)
       })
     }
+  }
+
+  agregarDocuments() {
+    const initialState = {
+      title: 'Agregar',
+    }
+    this.bsModalRef = this.modalService.show(DmsAgregarComponent, {
+      initialState,
+    })
+    this.bsModalRef.content.closeBtnName = 'Close'
+
+    this.bsModalRef.content.data.subscribe((result) => {
+      console.log('results', result)
+
+      this.copiDms.push(result)
+    })
+  }
+
+  handlePageChange(event) {
+    this.e = event
+    this.isEditado = []
   }
 }

@@ -1,5 +1,6 @@
 export class listaCarrier {
+  id: number
   documentName: string
   providerType: string
-  isEdit: boolean
+  value: boolean
 }

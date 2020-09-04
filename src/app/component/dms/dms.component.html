@@ -212,7 +212,7 @@
           <div class="head">
             <div class="titulo1">Search for a Carrier Document</div>
             <div class="titulo2">
-              <a
+              <a (click)="agregarDocuments()"
                 >Add Document<img
                   src="assets/img/add.jpg"
                   alt="image"
@@ -231,7 +231,7 @@
                   type="text"
                   placeholder="Carrier name, DOT number"
                   aria-label="Search"
-                  (input)="buscarCarrier($event)"
+                  (input)="buscarDms($event)"
                 />
               </form>
             </nav>
@@ -268,28 +268,66 @@
                 </tr>
               </thead>
 
-              <tr *ngFor="let documentos of copiDms">
+              <tr
+                *ngFor="
+                  let documentos of copiDms
+                    | paginate: { itemsPerPage: 4, currentPage: e };
+                  let p = index
+                "
+              >
                 <td>
-                  <span>{{ documentos.documentName }} </span>
+                  <span *ngIf="!isEditado[p]"
+                    >{{ documentos.documentName }}
+                  </span>
+                  <input
+                    type="text"
+                    *ngIf="isEditado[p]"
+                    (blur)="editDocuments()"
+                    [(ngModel)]="documentos.documentName"
+                    [value]="documentos.documentName"
+                    class="form-control"
+                  />
                 </td>
                 <td>
-                  <span>{{ documentos.providerType }} </span>
+                  <div>
+                    <span *ngIf="!isEditado[p]"
+                      >{{ documentos.providerType }}
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    *ngIf="isEditado[p]"
+                    (blur)="editDocuments()"
+                    [(ngModel)]="documentos.providerType"
+                    [value]="documentos.providerType"
+                    class="form-control"
+                  />
                 </td>
 
                 <td>
-                  <a>
-                    Edit<img
-                      src="assets/img/editar.svg"
-                      alt="image"
-                      width="20px"
-                      height="16px"
-                  /></a>
-                  <a>
-                    <ui-switch checked></ui-switch>
-                  </a>
+                  <div class="organizar">
+                    <div (click)="editDocuments(p)" class="organizarEditar">
+                      Edit<img
+                        src="assets/img/editar.svg"
+                        alt="image"
+                        width="20px"
+                        height="17px"
+                      />
+                    </div>
+                    <div>
+                      <ui-switch size="small" [(ngModel)]="documentos.value">
+                      </ui-switch>
+                    </div>
+                  </div>
                 </td>
               </tr>
             </table>
+          </div>
+
+          <div class="pagina">
+            <pagination-controls
+              (pageChange)="handlePageChange($event)"
+            ></pagination-controls>
           </div>
         </div>
       </tab>

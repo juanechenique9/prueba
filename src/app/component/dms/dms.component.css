@@ -263,26 +263,26 @@ table td:nth-child(6) {
 }
 
 .gestorDms th {
-  font-size: 12px;
+  font-size: 13px;
   padding: 10px;
 }
 
 .gestorDms td:nth-child(1) {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 100;
   width: 31%;
   padding: 10px;
 }
 
 .gestorDms td:nth-child(2) {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 100;
   width: 45%;
   padding: 10px;
 }
 
 .gestorDms td:nth-child(3) {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 100;
   width: 30%;
   padding: 10px;
@@ -295,4 +295,35 @@ table td:nth-child(6) {
 .gestorDms tr:hover td {
   background-color: #369681;
   color: white;
+}
+
+.Pulsar {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.pagina {
+  margin-top: 10px;
+  height: 40px;
+}
+
+.switch.switch-medium {
+  height: 11px;
+  min-width: 24px;
+}
+
+.switch.switch-medium small {
+  width: 15px;
+  height: 12px;
+  right: calc(100% - 14px);
+}
+
+.organizar {
+  display: flex;
+}
+
+.organizarEditar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }

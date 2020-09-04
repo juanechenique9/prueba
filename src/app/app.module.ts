@@ -13,6 +13,7 @@ import { SupportComponent } from './component/support/support.component'
 import { InicioComponent } from './component/inicio/inicio.component'
 import { Habilidades } from './model/habilidades'
 import { GroupsEditarComponent } from './component/mygroups/groups-editar.component'
+import { DmsAgregarComponent } from './component/dms/dms-agregar.component'
 
 ////Pipes///
 import { CambiarPipe } from './pipes/cambiar.pipe'
@@ -63,11 +64,13 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
     CambiarPipe,
     IsImagenPipe,
     GrupoAgregarComponent,
+    DmsAgregarComponent,
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    UiSwitchModule,
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
@@ -79,7 +82,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
     TabsModule.forRoot(),
     NgxPaginationModule,
     BsDropdownModule.forRoot(),
-    UiSwitchModule,
   ],
 
   entryComponents: [GrupoAgregarComponent],

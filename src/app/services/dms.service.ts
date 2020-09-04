@@ -9,7 +9,7 @@ import { Observable } from 'rxjs'
 export class DmsService {
   dms: listaCarrier = new listaCarrier()
 
-  ruta: string = 'https://run.mocky.io/v3/75af022a-68cc-4e2a-bd28-196621b2691c'
+  ruta: string = 'https://run.mocky.io/v3/47164501-a3a6-4ad0-8bc8-2a23a2b22d25'
 
   constructor(private http: HttpClient) {}
 

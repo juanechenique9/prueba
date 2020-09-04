@@ -26,9 +26,10 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "firebase": "^7.19.0",
     "firebase-tools": "^8.9.1",
+    "materialize-css": "^1.0.0-rc.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-pagination": "^5.0.0",
-    "ngx-ui-switch": "^10.0.2",
+    "ngx-ui-switch": "^10.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
