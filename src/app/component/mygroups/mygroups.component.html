@@ -14,9 +14,7 @@
 <div class="container">
   <div>
     <div class="head">
-      <div class="titulo1">
-        Carrier Group List
-      </div>
+      <div class="titulo1">Carrier Group List</div>
       <div class="titulo2">
         <a (click)="agregarGrupo()"
           >Add new group<img
@@ -76,29 +74,36 @@
         </thead>
 
         <tr
-          *ngFor="let grupo of copygrupos | paginate:{itemsPerPage:4,currentPage:p}; let i = index"
+          *ngFor="
+            let grupo of copygrupos
+              | paginate: { itemsPerPage: 4, currentPage: p };
+            let i = index
+          "
         >
           <td>
             <span *ngIf="!isEditable[i]">{{ grupo.name }} </span>
-            <input
-              type="text"
-              *ngIf="isEditable[i]"
-              (blur)="editarGrupo()"
-              [(ngModel)]="grupo.name"
-              class="form-control"
-              [value]="grupo.name"
-            />
+            <div *ngIf="isEditable[i]">
+              <input
+                type="text"
+                (blur)="editarGrupo()"
+                [(ngModel)]="grupo.name"
+                class="form-control"
+                [value]="grupo.name"
+                #enfocarNombre[i]
+              />
+            </div>
           </td>
           <td>
             <span *ngIf="!isEditable[i]">{{ grupo.descripcion }} </span>
-            <input
-              type="text"
-              *ngIf="isEditable[i]"
-              (blur)="editarGrupo()"
-              [(ngModel)]="grupo.descripcion"
-              class="form-control"
-              [value]="grupo.descripcion"
-            />
+            <div *ngIf="isEditable[i]">
+              <input
+                type="text"
+                (blur)="editarGrupo()"
+                [(ngModel)]="grupo.descripcion"
+                class="form-control"
+                [value]="grupo.descripcion"
+              />
+            </div>
           </td>
           <td>
             <a

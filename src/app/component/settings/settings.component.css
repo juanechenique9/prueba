@@ -34,9 +34,13 @@
 .head {
   display: flex;
   justify-content: space-between;
+}
+
+.primerSoporte {
   padding: 9px;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  margin-bottom: 17px;
 }
 
 .Cabecera {
@@ -65,4 +69,127 @@
 
 .signoExclamacion {
   margin-right: 5px;
+}
+
+.textoDeEmail {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.gestionarCheckbox {
+  display: flex;
+}
+
+.textoOperating {
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.borde {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.bordeDos {
+  margin-top: 23px;
+  margin-bottom: 6px;
+}
+
+.relleno {
+  background-color: lightcyan;
+  padding: 6px;
+}
+
+.row {
+  padding-top: 9px;
+}
+
+th {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+table {
+  width: 100%;
+}
+
+table td:nth-child(1) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 40%;
+}
+
+table td:nth-child(2) {
+  font-size: 11px;
+  font-weight: 100;
+}
+
+table td:nth-child(3) {
+  font-size: 11px;
+  font-weight: 100;
+}
+
+table td:nth-child(4) {
+  font-size: 11px;
+  font-weight: 100;
+  width: 30;
+}
+
+.form-control {
+  height: 21px;
+  width: 93px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  font-size: 11px;
+  padding-right: 0px;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+.movimiento {
+  display: flex;
+  justify-content: center;
+}
+
+th,
+td {
+  padding-top: 5px;
+}
+
+.botonDefault {
+  width: 124px;
+  height: 31px;
+  font-size: 11px;
+  margin-right: 13px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s;
+}
+
+.Enviar {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.form-check-inline {
+  margin-right: 0.1rem;
+}
+
+.rellenoDos {
+  background-color: lightcyan;
+  height: 143px;
+  padding: 6px;
 }

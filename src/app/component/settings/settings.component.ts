@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { Settings } from 'src/app/model/settings'
+import { SettingsService } from 'src/app/services/settings.service'
 
 @Component({
   selector: 'app-settings',
@@ -6,7 +8,17 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
-  constructor() {}
+  settings: Array<Settings> = new Array<Settings>()
 
-  ngOnInit(): void {}
+  constructor(private settingInjectado: SettingsService) {}
+
+  ngOnInit(): void {
+    this.insectarSettings()
+  }
+
+  insectarSettings() {
+    this.settingInjectado.leerSettings().subscribe((settingsdesdeapi) => {
+      this.settings = settingsdesdeapi
+    })
+  }
 }

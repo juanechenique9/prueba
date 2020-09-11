@@ -11,23 +11,908 @@
   </nav>
 </div>
 
-<div class="container">
+<div class="container" *ngFor="let set of settings">
   <div class="Cabecera">
     <div class="titulos">Custom FMCSA Alert Settings</div>
   </div>
 
-  <div class="head">
-    <div class="titulo1">FMCSA Operating Authority & Insurance Settings</div>
-    <div class="titulo2">
-      <a class="signoExclamacion"
-        ><img
-          src="assets/img/exclamacion.png"
-          alt="image"
-          width="16px"
-          height="16px"
-        />
-      </a>
-      <a>Learn more</a>
+  <div class="primerSoporte">
+    <div class="head">
+      <div class="titulo1">FMCSA Operating Authority & Insurance Settings</div>
+      <div class="titulo2">
+        <a class="signoExclamacion"
+          ><img
+            src="assets/img/exclamacion.png"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
+        </a>
+        <a>Learn more</a>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>
+              Under FMCSA Safety Rating Settings - take out the's - Send me
+              email alerts when my carrier:
+            </p>
+          </div>
+
+          <div>
+            <div class="gestionarCheckbox">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckbox1"
+                  value="option1"
+                  [(ngModel)]="set.authorityLost"
+                />
+              </div>
+              <div class="textoOperating">Operating Authority is Lost</div>
+            </div>
+
+            <div class="gestionarCheckbox">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckbox1"
+                  value="option1"
+                  [(ngModel)]="set.operatingReinstated"
+                />
+              </div>
+              <div class="textoOperating">
+                Operating Authority is Reinstated
+              </div>
+            </div>
+            <hr class="borde" />
+            <div class="gestionarCheckbox">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckbox1"
+                  value="option1"
+                  [(ngModel)]="set.insuranceExpired"
+                />
+              </div>
+              <div class="textoOperating">FMCSA Proof of Insurance Expired</div>
+            </div>
+            <div class="gestionarCheckbox">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckbox1"
+                  value="option1"
+                  [(ngModel)]="set.insuranceReinstated"
+                />
+              </div>
+              <div class="textoOperating">
+                FMCSA Proof of Insurance Reinstated
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="rellenoDos">
+          <div class="textoDeEmail">
+            <p>
+              Disqualify my carrier when its safety rating is
+              satisfactory,conditional, unsatisfactory, no rated:
+            </p>
+          </div>
+
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.authorityLost"
+              />
+            </div>
+            <div class="textoOperating">Operating Authority is Lost</div>
+          </div>
+
+          <hr class="bordeDos" />
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.insuranceExpired"
+              />
+            </div>
+            <div class="textoOperating">FMCSA Proof of Insurance Expired</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="primerSoporte">
+    <div class="head">
+      <div class="titulo1">FMCSA Safety Rating Settings</div>
+      <div class="titulo2">
+        <a class="signoExclamacion"
+          ><img
+            src="assets/img/exclamacion.png"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
+        </a>
+        <a>Learn more</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>
+              Under FMCSA Safety Rating Settings - take out the's - Send meemail
+              alerts when my carrier:
+            </p>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.turnSatisfactory"
+              />
+            </div>
+            <div class="textoOperating">Turns Satisfactory</div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.turnConditional"
+              />
+            </div>
+            <div class="textoOperating">Turns Conditional</div>
+          </div>
+
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.turnUnsatisfactory"
+              />
+            </div>
+            <div class="textoOperating">Turns Unsatisfactory</div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.turnRated"
+              />
+            </div>
+            <div class="textoOperating">Turns Rated</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>
+              Disqualify my carrier when its safety rating is
+              satisfactory,conditional, unsatisfactory, no rated:
+            </p>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.isSatisfactory"
+              />
+            </div>
+            <div class="textoOperating">Is Satisfactory</div>
+          </div>
+
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.isConditional"
+              />
+            </div>
+            <div class="textoOperating">Is Conditional</div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.isConditional"
+              />
+            </div>
+            <div class="textoOperating">Is Unsatisfactory</div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.isRated"
+              />
+            </div>
+            <div class="textoOperating">Is Not Rated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="primerSoporte">
+    <div class="head">
+      <div class="titulo1">Absolute Value BASIC Score Settings</div>
+      <div class="titulo2">
+        <button type="button" class="botonDefault">Set default settings</button>
+        <a class="signoExclamacion"
+          ><img
+            src="assets/img/exclamacion.png"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
+        </a>
+        <a>Learn more</a>
+      </div>
+    </div>
+
+    <div class="row" *ngFor="let setti of set.absoluteValueBasicScore">
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>Send me email alerts when absolute value BASIC scores are:</p>
+          </div>
+          <div class="gestorTabla">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>General Threshold</th>
+                  <th>Hazmat Threshold</th>
+                  <th>Ignore</th>
+                </tr>
+              </thead>
+              <tr *ngFor="let unsafe of setti.unsafeDriving">
+                <td><div>Unsafe Driving</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="unsafe.general"
+                      >
+                        <option *ngFor="let lista of unsafe.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="unsafe.hazmat"
+                      >
+                        <option *ngFor="let lista of unsafe.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="unsafe.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let hosCom of setti.hosCompliance">
+                <td><div>HOS Compliance</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="hosCom.general"
+                      >
+                        <option *ngFor="let lista of hosCom.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="hosCom.hazmat"
+                      >
+                        <option *ngFor="let lista of hosCom.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="hosCom.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let driver of setti.driverFitness">
+                <td><div>Driver Fitness</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="driver.general"
+                      >
+                        <option *ngFor="let lista of driver.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="driver.hazmat"
+                      >
+                        <option *ngFor="let lista of driver.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="driver.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let control of setti.controlledAlcohol">
+                <td><div>Controlled Substances/Alcohol</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="control.general"
+                      >
+                        <option *ngFor="let lista of control.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="control.hazmat"
+                      >
+                        <option *ngFor="let lista of control.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="control.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let vehicle of setti.vehicleMaintenance">
+                <td><div>Vehicle Maintenance</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="vehicle.general"
+                      >
+                        <option *ngFor="let lista of vehicle.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="vehicle.hazmat"
+                      >
+                        <option *ngFor="let lista of vehicle.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="vehicle.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Hazardous Material</td>
+                <td>Non-Public Date</td>
+              </tr>
+              <tr>
+                <td>Crash indicator</td>
+                <td>Non-Public Date</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>Disqualify my carrier when absolute value BASIC scores are:</p>
+          </div>
+          <div class="gestorTabla">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>General Threshold</th>
+                  <th>Hazmat Threshold</th>
+                  <th>Ignore</th>
+                </tr>
+              </thead>
+              <tr *ngFor="let unsafe of setti.unsafeDrivingDos">
+                <td><div>Unsafe Driving</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="unsafe.general"
+                      >
+                        <option *ngFor="let lista of unsafe.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="unsafe.hazmat"
+                      >
+                        <option *ngFor="let lista of unsafe.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="unsafe.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let hosCom of setti.hosComplianceDos">
+                <td><div>HOS Compliance</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="hosCom.general"
+                      >
+                        <option *ngFor="let lista of hosCom.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="hosCom.hazmat"
+                      >
+                        <option *ngFor="let lista of hosCom.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="hosCom.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let driver of setti.driverFitnessDos">
+                <td><div>Driver Fitness</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="driver.general"
+                      >
+                        <option *ngFor="let lista of driver.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="driver.hazmat"
+                      >
+                        <option *ngFor="let lista of driver.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="driver.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let control of setti.controlledAlcoholDos">
+                <td><div>Controlled Substances/Alcohol</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="control.general"
+                      >
+                        <option *ngFor="let lista of control.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="control.hazmat"
+                      >
+                        <option *ngFor="let lista of control.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="control.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngFor="let vehicle of setti.vehicleMaintenanceDos">
+                <td><div>Vehicle Maintenance</div></td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="vehicle.general"
+                      >
+                        <option *ngFor="let lista of vehicle.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div class="form-group">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        [(ngModel)]="vehicle.hazmat"
+                      >
+                        <option *ngFor="let lista of vehicle.listaNumero">
+                          {{ lista.numero }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="movimiento">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                        [(ngModel)]="vehicle.ignore"
+                      />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Hazardous Material</td>
+                <td>Non-Public Date</td>
+              </tr>
+              <tr>
+                <td>Crash indicator</td>
+                <td>Non-Public Date</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="primerSoporte">
+    <div class="head">
+      <div class="titulo1">FMCSA Out of Service Rates</div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>
+              Under FMCSA Safety Rating Settings - take out the's - Send me
+              email alerts when my carrier:
+            </p>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.vehicleAverage"
+              />
+            </div>
+            <div class="textoOperating">
+              Vehicle out of service exceeds the national average
+            </div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.driverAverage"
+              />
+            </div>
+            <div class="textoOperating">
+              Driver out of service exceeds the national average
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="relleno">
+          <div class="textoDeEmail">
+            <p>
+              Disqualify my carrier when its safety rating is
+              satisfactory,conditional, unsatisfactory, no rated:
+            </p>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.vehicleAverage"
+              />
+            </div>
+            <div class="textoOperating">
+              Vehicle out of service exceeds the national average
+            </div>
+          </div>
+          <div class="gestionarCheckbox">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+                [(ngModel)]="set.driverAverage"
+              />
+            </div>
+            <div class="textoOperating">
+              Driver out of service exceeds the national average
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Enviar">
+    <button type="button" class="btn btn-primary">Save</button>
   </div>
 </div>
