@@ -1,10 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  NgZone,
-  OnInit,
-  ViewChild,
-} from '@angular/core'
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core'
 import { Grupos } from 'src/app/model/grupos'
 import { GruposdeService } from 'src/app/services/gruposde.service'
 import { GrupoAgregarComponent } from 'src/app/component/mygroups/grupo-agregar.component'
@@ -30,8 +24,7 @@ export class MygroupsComponent implements OnInit {
   constructor(
     private grupoInjectado: GruposdeService,
     private modalService: BsModalService,
-    private cd: ChangeDetectorRef,
-    private _ngZone: NgZone
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -69,12 +62,8 @@ export class MygroupsComponent implements OnInit {
   editarGrupo(i: number) {
     this.isEditable = []
     this.isEditable[i] = !this.isEditable[i]
-    this._ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
-        this.enfocarNombre?.nativeElement.focus()
-        this.cd.detectChanges()
-      })
-    })
+    this.cd.detectChanges()
+    this.enfocarNombre?.nativeElement.focus()
   }
 
   handlePageChange(event) {
