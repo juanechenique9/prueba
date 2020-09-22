@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core'
 import { Grupos } from 'src/app/model/grupos'
 import { GruposdeService } from 'src/app/services/gruposde.service'
 import { GrupoAgregarComponent } from 'src/app/component/mygroups/grupo-agregar.component'
@@ -17,13 +17,14 @@ export class MygroupsComponent implements OnInit {
 
   bsModalRef: BsModalRef
   p: number
-  itemsPerPage: number = 4
+  itemsPerPage = 4
 
-  @ViewChild('nombre') enfocarNombre: any
+  @ViewChild('enfocarNombre') enfocarNombre: any
 
   constructor(
     private grupoInjectado: GruposdeService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class MygroupsComponent implements OnInit {
   }
 
   buscarGrupo(event) {
-    let nombreGrupo: string = event.target.value
+    const nombreGrupo: string = event.target.value
 
     if (nombreGrupo === '') {
       this.copygrupos = this.grupos
@@ -61,9 +62,8 @@ export class MygroupsComponent implements OnInit {
   editarGrupo(i: number) {
     this.isEditable = []
     this.isEditable[i] = !this.isEditable[i]
-    this.enfocarNombre[i].nativeElement.focus()
-
-    console.log(this.enfocarNombre)
+    this.cd.detectChanges()
+    this.enfocarNombre?.nativeElement.focus()
   }
 
   handlePageChange(event) {

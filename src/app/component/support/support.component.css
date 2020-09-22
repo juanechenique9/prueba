@@ -1,0 +1,108 @@
+.titulo {
+  font-weight: 380;
+  font-size: 0.9rem;
+}
+
+.frente {
+  width: 1305;
+  height: 40px;
+  background-color: white;
+}
+
+.boto {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 85px;
+  height: 25px;
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  margin-top: 20px;
+  width: 920px;
+  background-color: white;
+}
+
+.Cabecera {
+  padding-top: 11px;
+  margin-bottom: 18px;
+}
+
+.titulos {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.col-8 {
+  padding-right: 0px;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-header {
+  padding: 0px;
+}
+
+.btn-link {
+  font-size: 13px;
+}
+
+.card-body {
+  padding: 0px;
+  margin-left: 12px;
+  padding-top: 15px;
+  font-size: 15px;
+}
+
+.vistaContacto {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.vistaRegistro {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 9px;
+  background-color: lightcyan;
+  display: flex;
+  flex-direction: column;
+}
+
+.VistaSoporte {
+  padding-top: 16px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.form-control {
+  height: auto;
+  font-size: 11px;
+}
+
+.contactos {
+  font-size: 11px;
+  padding-top: 10px;
+  font-weight: 100;
+}
+
+.contacto {
+  font-size: 11px;
+  padding-top: 15px;
+  font-weight: 100;
+  display: flex;
+}

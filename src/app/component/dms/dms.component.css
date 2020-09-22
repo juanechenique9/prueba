@@ -248,7 +248,7 @@ table td:nth-child(6) {
   border-radius: 0.25rem;
   background-color: lightcyan;
   border: 1px solid lightcyan;
-  background-image: url(C:\Users\juanc\OneDrive\Desktop\ANGULAR\prueba3\src\assets\img\more.svg);
+  background-image: url('/assets/img/more.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;

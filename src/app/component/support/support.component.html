@@ -1,1 +1,173 @@
-<p>support works!</p>
+<div class="frente">
+  <nav class="navbar">
+    <div class="titulo">
+      <a>My Groups</a>
+    </div>
+    <button class="boto" type="button">
+      Test<a
+        ><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
+      </a>
+    </button>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="Cabecera">
+    <div class="titulos">Support</div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div *ngFor="let data of soporte">
+        <div class="accordion" [id]="'accordion' + data.id">
+          <div class="card">
+            <div class="card-header" [id]="'heading' + data.id">
+              <h2 class="mb-0">
+                <a
+                  class="btn btn-link btn-block text-left"
+                  type="button"
+                  data-toggle="collapse"
+                  [href]="'#collapse' + data.id"
+                  aria-expanded="true"
+                  [attr.aria-controls]="'collapse' + data.id"
+                >
+                  {{ data.Pregunta }}
+                </a>
+              </h2>
+            </div>
+
+            <div
+              [id]="'collapse' + data.id"
+              class="collapse"
+              [attr.data-parent]="'#accordion' + data.id"
+              [attr.aria-labelledby]="'heading' + data.id"
+            >
+              <div class="card-body">
+                {{ data.Respuesta }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="vistaContacto">
+        Contact Us
+        <div class="VistaSoporte">
+          <div class="vistaRegistro">
+            <form>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  placeholder="Message"
+                ></textarea>
+              </div>
+            </form>
+            <button type="button" class="btn btn-secondary">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-cols-2">
+        <div class="col">
+          <div class="contactos">
+            <img
+              src="assets/img/email.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>Jeff Tucker, CEO</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contactos">
+            <img
+              src="assets/img/email.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>Ashley St,George,Administrador</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/ubicacion.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>56 N.Haddon Avenue, 2nd Floor</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/asistente.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>Haddonfield,NJ 08033</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/telefono.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>800-889-8179</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/impresora.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>856-773-936</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/telefono.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>856-773-9325</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contacto">
+            <img
+              src="assets/img/telefono.svg"
+              alt="image"
+              width="15px"
+              height="16px"
+            /><span>1-800-889-8179</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

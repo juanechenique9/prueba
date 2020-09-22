@@ -24,7 +24,7 @@ import { FilterPipe } from './pipes/filter.pipe'
 import { GruposdeService } from './services/gruposde.service'
 import { CarriersService } from './services/carriers.service'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
-
+import { SoporteService } from 'src/app/services/soporte.service'
 import { DmsService } from './services/dms.service'
 import { DocumentosService } from './services/documentos.service'
 
@@ -45,6 +45,7 @@ import { NgxPaginationModule } from 'ngx-pagination'
 import { UiSwitchModule } from 'ngx-ui-switch'
 import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 @NgModule({
   declarations: [
@@ -81,12 +82,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
     NgxPaginationModule,
     TabsModule.forRoot(),
     NgxPaginationModule,
+    NgxSpinnerModule,
     BsDropdownModule.forRoot(),
   ],
 
   entryComponents: [GrupoAgregarComponent],
 
-  providers: [CarriersService, GruposdeService, DmsService, DocumentosService],
+  providers: [
+    CarriersService,
+    GruposdeService,
+    DmsService,
+    DocumentosService,
+    SoporteService,
+  ],
 
   bootstrap: [AppComponent],
 })
