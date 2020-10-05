@@ -9,7 +9,7 @@ import { SettingsService } from 'src/app/services/settings.service'
 })
 export class SettingsComponent implements OnInit {
   settings: Array<Settings> = new Array<Settings>()
-
+  loading: boolean
   constructor(private settingInjectado: SettingsService) {}
 
   ngOnInit(): void {
@@ -17,8 +17,10 @@ export class SettingsComponent implements OnInit {
   }
 
   insectarSettings() {
+    this.loading = true
     this.settingInjectado.leerSettings().subscribe((settingsdesdeapi) => {
       this.settings = settingsdesdeapi
+      this.loading = false
     })
   }
 }

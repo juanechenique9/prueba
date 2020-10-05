@@ -20,7 +20,7 @@ export class DMSComponent implements OnInit {
   bsModalRef: BsModalRef
   e: number
   itemsPerPage: number = 4
-
+  loading: boolean
   constructor(
     private CarrierInjectado: CarriersService,
     private DmsInjectado: DmsService,
@@ -54,10 +54,12 @@ export class DMSComponent implements OnInit {
   }
 
   injectar(nombre?: string) {
+    this.loading = true
     this.CarrierInjectado.leerNoticias().subscribe(
       (habilidadesdesdeapi) => {
         this.copyHabilidades = habilidadesdesdeapi
         this.habilidades = habilidadesdesdeapi
+        this.loading = false
         this.verifyDocuments()
       },
       (error) => console.log(error)

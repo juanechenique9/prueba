@@ -3,6 +3,7 @@ import { Habilidades } from 'src/app/model/habilidades'
 import { CarriersService } from 'src/app/services/carriers.service'
 import { lista } from 'src/app/model/Lista'
 import { ListaService } from 'src/app/services/lista.service'
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
   selector: 'app-carriers',
@@ -15,10 +16,12 @@ export class CarriersComponent implements OnInit {
   copyHabilidades: Array<Habilidades> = new Array<Habilidades>()
   public selectedLista: lista = { id: 0, nombre: '' }
   public listarNombre: lista[]
+  loading: boolean
 
   constructor(
     private CarrierInjectado: CarriersService,
-    private dataSvc: ListaService
+    private dataSvc: ListaService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
@@ -50,10 +53,12 @@ export class CarriersComponent implements OnInit {
    * @param nombre
    */
   injectar(nombre?: string) {
+    this.loading = true
     this.CarrierInjectado.leerNoticias().subscribe(
       (habilidadesdesdeapi) => {
         this.copyHabilidades = habilidadesdesdeapi
         this.habilidades = habilidadesdesdeapi
+        this.loading = false
       },
       (error) => console.log(error)
     )
@@ -66,7 +71,7 @@ export class CarriersComponent implements OnInit {
       this.copyHabilidades = this.habilidades
     } else {
       this.copyHabilidades = this.habilidades.filter((x) => {
-        return x.titulo.toLowerCase().includes(nombreBuscar)
+        return x.titulo.toLowerCase().includes(nombreBuscar.toLowerCase())
       })
     }
   }

@@ -46,6 +46,8 @@ import { UiSwitchModule } from 'ngx-ui-switch'
 import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
 import { NgxSpinnerModule } from 'ngx-spinner'
+import { NgxChartsModule } from '@swimlane/ngx-charts'
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { NgxSpinnerModule } from 'ngx-spinner'
     NgxPaginationModule,
     NgxSpinnerModule,
     BsDropdownModule.forRoot(),
+    NgxChartsModule,
+    DragDropModule,
   ],
 
   entryComponents: [GrupoAgregarComponent],

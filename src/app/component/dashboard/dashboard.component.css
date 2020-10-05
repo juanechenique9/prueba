@@ -1,0 +1,47 @@
+.titulo {
+  font-weight: 380;
+  font-size: 0.9rem;
+}
+
+.frente {
+  width: 1305;
+  height: 40px;
+  background-color: white;
+}
+
+.boto {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 85px;
+  height: 25px;
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  margin-top: 20px;
+  width: 920px;
+  background-color: white;
+}
+
+.tarjetas {
+  padding-top: 30px;
+}
+
+.card {
+  margin-bottom: 9px;
+}
+
+.Graficas {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 10px;
+  margin-bottom: 8px;
+}

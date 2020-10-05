@@ -4,7 +4,8 @@
       <a>My Groups</a>
     </div>
     <button class="boto" type="button">
-      Test<a><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
+      Test<a
+        ><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
       </a>
     </button>
   </nav>
@@ -15,24 +16,47 @@
     <div class="head">
       <div class="titulo1">Carrier Group List</div>
       <div class="titulo2">
-        <a (click)="agregarGrupo()">Add new group<img src="assets/img/add.jpg" alt="image" width="16px" height="16px" />
+        <a (click)="agregarGrupo()"
+          >Add new group<img
+            src="assets/img/add.jpg"
+            alt="image"
+            width="16px"
+            height="16px"
+          />
         </a>
       </div>
     </div>
     <div class="busqueda">
       <nav class="navbar2">
         <form class="form-inline">
-          <input class="form-control4" type="text" placeholder="Search groups by name" aria-label="Search"
-            (input)="buscarGrupo($event)" />
+          <input
+            class="form-control4"
+            type="text"
+            placeholder="Search groups by name"
+            aria-label="Search"
+            (input)="buscarGrupo($event)"
+          />
         </form>
       </nav>
       <div>
-        <a class="busqueda1">Search
-          <img src="assets/img/buscar.jpg" alt="image" width="12px" height="12px" /></a>
+        <a class="busqueda1"
+          >Search
+          <img
+            src="assets/img/buscar.jpg"
+            alt="image"
+            width="12px"
+            height="12px"
+        /></a>
       </div>
       <div>
-        <a class="busqueda2">Remove Filters
-          <img src="assets/img/deletedos.svg" alt="image" width="15px" height="16px" />
+        <a class="busqueda2"
+          >Remove Filters
+          <img
+            src="assets/img/deletedos.svg"
+            alt="image"
+            width="15px"
+            height="16px"
+          />
         </a>
       </div>
     </div>
@@ -49,42 +73,86 @@
           </tr>
         </thead>
 
-        <tr *ngFor="
+        <tr
+          *ngFor="
             let grupo of copygrupos
               | paginate: { itemsPerPage: 4, currentPage: p };
             let i = index
-          ">
+          "
+        >
           <td>
             <span *ngIf="!isEditable[i]">{{ grupo.name }} </span>
             <div *ngIf="isEditable[i]">
-              <input type="text" (blur)="editarGrupo()" [(ngModel)]="grupo.name" class="form-control"
-                [value]="grupo.name" #enfocarNombre />
+              <input
+                type="text"
+                (blur)="editarGrupo()"
+                [(ngModel)]="grupo.name"
+                class="form-control"
+                [value]="grupo.name"
+                #enfocarNombre
+              />
             </div>
           </td>
           <td>
             <span *ngIf="!isEditable[i]">{{ grupo.descripcion }} </span>
             <div *ngIf="isEditable[i]">
-              <input type="text" (blur)="editarGrupo()" [(ngModel)]="grupo.descripcion" class="form-control"
-                [value]="grupo.descripcion" />
+              <input
+                type="text"
+                (blur)="editarGrupo()"
+                [(ngModel)]="grupo.descripcion"
+                class="form-control"
+                [value]="grupo.descripcion"
+              />
             </div>
           </td>
           <td>
-            <a>View carrier list
-              <img src="assets/img/car.svg" alt="image" width="18px" /></a>
+            <a
+              >View carrier list
+              <img src="assets/img/car.svg" alt="image" width="18px"
+            /></a>
           </td>
           <td>
             <a (click)="editarGrupo(i)">
-              Edit Group<img src="assets/img/editar.svg" alt="image" width="20px" height="16px" /></a>
+              Edit Group<img
+                src="assets/img/editar.svg"
+                alt="image"
+                width="20px"
+                height="16px"
+            /></a>
           </td>
           <td>
-            <a (click)="eliminarGrupo(grupo.id)">Delete Group<img src="assets/img/delete.svg" alt="image" width="20px"
-                height="16px" /></a>
+            <a (click)="eliminarGrupo(grupo.id)"
+              >Delete Group<img
+                src="assets/img/delete.svg"
+                alt="image"
+                width="20px"
+                height="16px"
+            /></a>
           </td>
         </tr>
       </table>
     </div>
     <div class="pagina">
-      <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+      <pagination-controls
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
     </div>
+  </div>
+</div>
+
+<div *ngIf="loading">
+  <div class="lds-spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </div>

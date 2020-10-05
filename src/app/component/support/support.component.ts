@@ -9,7 +9,7 @@ import { SoporteService } from 'src/app/services/soporte.service'
 })
 export class SupportComponent implements OnInit {
   soporte: Array<Support> = new Array<Support>()
-
+  loading: boolean
   constructor(private soporteInjectado: SoporteService) {}
 
   ngOnInit(): void {
@@ -17,8 +17,10 @@ export class SupportComponent implements OnInit {
   }
 
   mostrarSoporte() {
+    this.loading = true
     this.soporteInjectado.ObtenerSupport().subscribe((soportedesdeapi) => {
       this.soporte = soportedesdeapi
+      this.loading = false
     })
   }
 }

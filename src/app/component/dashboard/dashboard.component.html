@@ -1,1 +1,151 @@
-<p>dashboard works!</p>
+<div class="frente">
+  <nav class="navbar">
+    <div class="titulo">
+      <a>Dashboard</a>
+    </div>
+    <button class="boto" type="button">
+      Test<a
+        ><img src="assets/img/pi.PNG" alt="image" width="16px" height="16px" />
+      </a>
+    </button>
+  </nav>
+</div>
+
+<div class="container" *ngFor="let dash of dashboard">
+  <div class="tarjetas">
+    <div class="row row-cols-3" cdkDropListGroup>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloFleet"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div class="Graficas" *ngFor="let fleet of dash.tituloFleet" cdkDrag>
+            <h6>
+              {{ fleet.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloCarriers"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div
+            class="Graficas"
+            *ngFor="let carrier of dash.tituloCarriers"
+            cdkDrag
+          >
+            <h6>
+              {{ carrier.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloBASIC"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div class="Graficas" *ngFor="let basic of dash.tituloBASIC" cdkDrag>
+            <h6>
+              {{ basic.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloStatus"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div
+            class="Graficas"
+            *ngFor="let status of dash.tituloStatus"
+            cdkDrag
+          >
+            <h6>
+              {{ status.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloExpired"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div
+            class="Graficas"
+            *ngFor="let expired of dash.tituloExpired"
+            cdkDrag
+          >
+            <h6>
+              {{ expired.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloRated"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div class="Graficas" *ngFor="let rated of dash.tituloRated" cdkDrag>
+            <h6>
+              {{ rated.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          cdkDropList
+          [cdkDropListData]="tituloReport"
+          (cdkDropListDropped)="onDropped($event)"
+        >
+          <div
+            class="Graficas"
+            *ngFor="let report of dash.tituloReport"
+            cdkDrag
+          >
+            <h6>
+              {{ report.name }}
+            </h6>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading">
+  <div class="lds-spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

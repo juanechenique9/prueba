@@ -12,7 +12,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 export class MygroupsComponent implements OnInit {
   grupos: Array<Grupos> = new Array<Grupos>()
   copygrupos: Array<Grupos> = new Array<Grupos>()
-
+  loading: boolean
   isEditable = []
 
   bsModalRef: BsModalRef
@@ -32,10 +32,12 @@ export class MygroupsComponent implements OnInit {
   }
 
   insertar() {
+    this.loading = true
     this.grupoInjectado.LeerGrupos().subscribe(
       (gruposdesdeapi) => {
         this.grupos = gruposdesdeapi
         this.copygrupos = gruposdesdeapi
+        this.loading = false
       },
       (error) => console.error(error)
     )
