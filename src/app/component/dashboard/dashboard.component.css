@@ -45,3 +45,8 @@
   padding: 10px;
   margin-bottom: 8px;
 }
+
+.organizar {
+  display: flex;
+  justify-content: space-around;
+}

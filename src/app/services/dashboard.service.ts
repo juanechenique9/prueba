@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export class DashboardService {
-  ruta: string = 'https://run.mocky.io/v3/0fa2e5c6-16da-4cee-8ff9-f14d2e167567'
+  ruta: string = 'https://run.mocky.io/v3/3d4ef214-70a5-494e-ae7e-aaea04c4d393'
 
   constructor(private http: HttpClient) {}
 
