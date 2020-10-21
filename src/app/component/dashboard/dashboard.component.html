@@ -13,92 +13,119 @@
 
 <div class="container">
   <div class="tarjetas">
-    <div cdkDropListGroup *ngFor="let dash of dashboard">
-      <div class="card-columns">
-        <div
-          cdkDropList
-          [cdkDropListData]="dash.tituloFleet"
-          (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
-        >
-          <div class="card" *ngFor="let fleet of dash.tituloFleet" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ fleet.name }}</h6>
-            </div>
+    <div class="wrapper" cdkDropListGroup *ngFor="let dash of dashboard">
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloFleet"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let fleet of dash.tituloFleet" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ fleet.name }}</h6>
           </div>
         </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="dash.tituloCarriers"
-          (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
-        >
-          <div class="card" *ngFor="let carrier of dash.tituloCarriers" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ carrier.name }}</h6>
-            </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloCarriers"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let carrier of dash.tituloCarriers" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ carrier.name }}</h6>
           </div>
         </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloBASIC"
+        (cdkDropListDropped)="onDropped($event)"
+      >
         <div
+          class="card"
           cdkDropList
           [cdkDropListData]="dash.tituloBASIC"
           (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
+          *ngFor="let basic of dash.tituloBASIC"
+          cdkDrag
         >
-          <div class="card" *ngFor="let basic of dash.tituloBASIC" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ basic.name }}</h6>
-            </div>
+          <div class="card-body">
+            <h6 class="card-title">{{ basic.name }}</h6>
           </div>
         </div>
+      </div>
 
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloStatus"
+        (cdkDropListDropped)="onDropped($event)"
+      >
         <div
+          class="card"
           cdkDropList
           [cdkDropListData]="dash.tituloStatus"
           (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
+          *ngFor="let status of dash.tituloStatus"
+          cdkDrag
         >
-          <div class="card" *ngFor="let status of dash.tituloStatus" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ status.name }}</h6>
-            </div>
+          <div class="card-body">
+            <h6 class="card-title">{{ status.name }}</h6>
           </div>
         </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="dash.tituloExpired"
-          (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
-        >
-          <div class="card" *ngFor="let expired of dash.tituloExpired" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ expired.name }}</h6>
-            </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloExpired"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let expired of dash.tituloExpired" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ expired.name }}</h6>
           </div>
         </div>
-        <div
-          cdkDropList
-          [cdkDropListData]="dash.tituloRated"
-          (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
-        >
-          <div class="card" *ngFor="let rated of dash.tituloRated" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ rated.name }}</h6>
-            </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloRated"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let rated of dash.tituloRated" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ rated.name }}</h6>
           </div>
         </div>
+      </div>
 
-        <div
-          cdkDropList
-          [cdkDropListData]="dash.tituloReport"
-          (cdkDropListDropped)="onDropped($event)"
-          cdkDropListOrientation="horizontal"
-        >
-          <div class="card" *ngFor="let report of dash.tituloReport" cdkDrag>
-            <div class="card-body">
-              <h6 class="card-title">{{ report.name }}</h6>
-            </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.tituloReport"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let report of dash.tituloReport" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ report.name }}</h6>
+          </div>
+        </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.Autotrans"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let auto of dash.Autotrans" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ auto.name }}</h6>
+          </div>
+        </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="dash.Carrier"
+        (cdkDropListDropped)="onDropped($event)"
+      >
+        <div class="card" *ngFor="let ca of dash.Carrier" cdkDrag>
+          <div class="card-body">
+            <h6 class="card-title">{{ ca.name }}</h6>
           </div>
         </div>
       </div>

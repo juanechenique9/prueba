@@ -48,6 +48,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { DragDropModule } from '@angular/cdk/drag-drop'
+import { GridsterModule } from 'angular-gridster2'
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     BsDropdownModule.forRoot(),
     NgxChartsModule,
     DragDropModule,
+    GridsterModule,
   ],
 
   entryComponents: [GrupoAgregarComponent],

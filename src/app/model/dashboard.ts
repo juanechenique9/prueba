@@ -6,4 +6,6 @@ export class Dashboard {
   tituloExpired: Array<any>
   tituloRated: Array<any>
   tituloReport: Array<any>
+  Autotrans: Array<any>
+  Carrier: Array<any>
 }

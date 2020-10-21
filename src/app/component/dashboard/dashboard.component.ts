@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Dashboard } from 'src/app/model/dashboard'
-
+import { GridsterConfig, GridsterItem } from 'angular-gridster2'
 import { DashboardService } from 'src/app/services/dashboard.service'
 
 import {
@@ -17,6 +17,7 @@ import {
 export class DashboardComponent implements OnInit {
   dashboard: Array<Dashboard> = new Array<Dashboard>()
   loading: boolean
+  options: GridsterConfig
 
   constructor(private dashInjectado: DashboardService) {}
 
@@ -34,7 +35,6 @@ export class DashboardComponent implements OnInit {
 
   onDropped(event: CdkDragDrop<string[]>) {
     console.log(event)
-
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
