@@ -32,6 +32,7 @@ import { DocumentosService } from './services/documentos.service'
 import { MatDialogModule } from '@angular/material/dialog'
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -46,9 +47,11 @@ import { UiSwitchModule } from 'ngx-ui-switch'
 import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
 import { NgxSpinnerModule } from 'ngx-spinner'
+import { SortablejsModule } from 'ngx-sortablejs'
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { GridsterModule } from 'angular-gridster2'
+
 
 @NgModule({
   declarations: [
@@ -75,13 +78,16 @@ import { GridsterModule } from 'angular-gridster2'
     ReactiveFormsModule,
     BrowserModule,
     UiSwitchModule,
+    ChartsModule,
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
+    NgxChartsModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     NgbModule,
     ButtonsModule.forRoot(),
+    SortablejsModule.forRoot({ animation: 150 }),
     NgxPaginationModule,
     TabsModule.forRoot(),
     NgxPaginationModule,
@@ -89,7 +95,9 @@ import { GridsterModule } from 'angular-gridster2'
     BsDropdownModule.forRoot(),
     NgxChartsModule,
     DragDropModule,
-    GridsterModule,
+   
+    GridsterModule
+    
   ],
 
   entryComponents: [GrupoAgregarComponent],

@@ -8,7 +8,7 @@ import { GridsterConfig, GridsterItem } from 'angular-gridster2'
   providedIn: 'root',
 })
 export class DashboardService {
-  ruta: string = 'https://run.mocky.io/v3/61881f12-a930-4b82-a438-9679a69a5753'
+  ruta: string = 'https://run.mocky.io/v3/27327a51-e39e-4ef7-b4c4-cbf56782b2e0'
 
   constructor(private http: HttpClient) {}
 
