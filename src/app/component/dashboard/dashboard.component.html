@@ -23,10 +23,10 @@
           <div class="card-body">
             <h6 class="card-title">{{ fleet.name }}</h6>
            
-            <div [hidden]="!chart">
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
-          
+            <div >
+            <canvas #Mychart *ngIf="chart.length > 0"></canvas>
+            </div>
+
           </div>
         </div>
       </div>
