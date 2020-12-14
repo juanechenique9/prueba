@@ -1,17 +1,44 @@
 export class Dashboard {
   tituloFleet: Array<any>
-  fleetSizes:Array<any>
+  fleetSizes: Array<any>
   tituloCarriers: Array<any>
   MyCarrierSafety: Array<any>
   tituloBASIC: Array<any>
   basicScore: Array<any>
   tituloStatus: Array<any>
-  carrierStatus:  Array<any>
+  carrierStatus: Array<any>
   tituloExpired: Array<any>
   expiredDocument: Array<any>
   tituloRated: Array<any>
   ratedCarriers: Array<any>
   tituloReport: Array<any>
   trendReport: Array<any>
- 
+  ratedSatisfactory: Array<any>
+  ratedUnrated: Array<any>
+  ratedConditional: Array<any>
+  ratedUnsatisfactory: Array<any>
+  ratedSatis: Array<any>
+  ratedUnra: Array<any>
+  ratedCondicion: Array<any>
+  ratedUnsatis: Array<any>
+  trendDriving: Array<any>
+  trendCompliance: Array<any>
+  trendVehicle: Array<any>
+  ratedSubstances: Array<any>
+  ratedFitness: Array<any>
+  basicUnsafe: Array<any>
+  basicUnsafeValue: Array<any>
+  basicUnsafeValueSecond: Array<any>
+  basicHOS: Array<any>
+  basicHOSValue: Array<any>
+  basicHOSValueSecond: Array<any>
+  basicVehicle: Array<any>
+  basicVehicleValue: Array<any>
+  basicVehicleValueSecond: Array<any>
+  basicControlled: Array<any>
+  basicControlledValue: Array<any>
+  basicControlledValueSecond: Array<any>
+  basicDriver: Array<any>
+  basicDriverValue: Array<any>
+  basicDriverValueSecond: Array<any>
 }

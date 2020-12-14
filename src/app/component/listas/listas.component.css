@@ -2,6 +2,19 @@
   display: flex;
   justify-content: center;
 }
+
+.iconoDash {
+  width: 35px;
+  height: 47px;
+  filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(224deg)
+    brightness(101%) contrast(101%);
+}
+
+.iconoHelp {
+  filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(224deg)
+    brightness(101%) contrast(101%);
+}
+
 .tipo1 {
   font-size: 8px;
   color: white;

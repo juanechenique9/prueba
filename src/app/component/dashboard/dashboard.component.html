@@ -12,19 +12,22 @@
 </div>
 
 <div class="container">
-  <div class="tarjetas">
+  <div id="myChart" class="tarjetas">
     <div
       class="row row-cols-3"
       [sortablejs]="dashboard"
-      *ngFor="let dash of dashboard"
-    >
+      *ngFor="let dash of dashboard">
       <div class="col">
         <div class="card" *ngFor="let fleet of dash.tituloFleet">
           <div class="card-body">
             <h6 class="card-title">{{ fleet.name }}</h6>
            
             <div >
-            <canvas #Mychart *ngIf="chart.length > 0"></canvas>
+              <canvas baseChart width="400" height="300"
+              [data]="datosDona"
+              [labels]="etiquetasDona"
+              [chartType]="tipos">
+            </canvas>
             </div>
 
           </div>
@@ -34,6 +37,13 @@
         <div class="card"  *ngFor="let carrier of dash.tituloCarriers">
           <div class="card-body">
             <h6 class="card-title">{{ carrier.name }}</h6>
+            <div >
+              <canvas baseChart width="400" height="300"
+              [data]="datosSafety"
+              [labels]="etiquetasSafety"
+              [chartType]="tipoSafety">
+            </canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -42,13 +52,74 @@
         <div class="card" *ngFor="let status of dash.tituloStatus">
           <div class="card-body">
             <h6 class="card-title">{{ status.name }}</h6>
+            <div>
+              <canvas baseChart width="600" height="350"
+              [data]="datoStatus"
+              [labels]="etiquetaStatus"
+              [chartType]="tipoStatus">
+            </canvas>
+          </div>
           </div>
         </div>
       </div>
       <div class="col">
+        
         <div class="card" *ngFor="let expired of dash.tituloExpired">
           <div class="card-body">
             <h6 class="card-title">{{ expired.name }}</h6>
+            <div>
+              <cdk-virtual-scroll-viewport itemSize="5" class="medidaScroll">
+              <div class="row" *cdkVirtualFor="let expi of dash.expiredDocument" >
+                <div class="col-sm-7">{{expi.name}}
+                <div class="nombres">{{expi.texto}}</div>
+                </div>
+                <div class="col-sm-5">
+                  <a
+                  >
+                  <img
+                    src="assets/img/reloj.png"
+                    alt="image"
+                    width="12px"
+                    height="14px"
+                  />
+                </a> {{expi.fecha}}</div>
+              </div>
+            </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+      
+      <div class="col">
+        <div class="card" *ngFor="let rated of dash.tituloRated">
+          <div class="card-body">
+            <h6 class="card-title">{{ rated.name }}</h6>
+            <div>
+              <canvas baseChart width="400" height="450"
+              [datasets]="datosLinea"
+                [labels]="arregloLinea"
+                [legend]="lineChartLegend"
+                [chartType]="tipoLinea">
+              </canvas>
+           </div>
+            </div>
+         
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" *ngFor="let report of dash.tituloReport">
+          <div class="card-body">
+            <h6 class="card-title">{{ report.name }}</h6>
+            <div>
+              <canvas baseChart width="400" height="450"
+              [datasets]="datosTrend"
+                [labels]="arregloLinea"
+                [legend]="lineChartLegend"
+                [chartType]="tipoLinea">
+              </canvas>
+           </div>
           </div>
         </div>
       </div>
@@ -57,24 +128,17 @@
         <div class="card" *ngFor="let basic of dash.tituloBASIC">
           <div class="card-body">
             <h6 class="card-title">{{ basic.name }}</h6>
+            <div>
+              <apx-chart
+              [series]="tipoBasic.series"
+              [chart]="tipoBasic.chart"
+              [colors]="tipoBasic.colors"
+            ></apx-chart>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card" *ngFor="let rated of dash.tituloRated">
-          <div class="card-body">
-            <h6 class="card-title">{{ rated.name }}</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" *ngFor="let report of dash.tituloReport">
-          <div class="card-body">
-            <h6 class="card-title">{{ report.name }}</h6>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 

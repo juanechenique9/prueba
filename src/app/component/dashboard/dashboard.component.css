@@ -27,7 +27,7 @@
 
 .container {
   margin-top: 20px;
-  width: 920px;
+  width: 1024px;
   background-color: white;
 }
 
@@ -39,16 +39,25 @@
   margin-bottom: 9px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+.col-sm-7 {
+  font-size: 14px;
 }
 
-.cdk-drop-list-dragging .cdk-drag {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+.col-sm-5 {
+  font-size: 12px;
+  font-weight: 100px;
 }
 
-.cdk-drag-animating {
-  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+.nombres {
+  font-weight: 100;
+  font-size: 11px;
+}
+
+.medidaScroll {
+  width: 288px;
+  height: 162px;
+}
+
+.card-body {
+  padding: 9px;
 }
