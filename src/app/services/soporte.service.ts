@@ -11,7 +11,7 @@ export class SoporteService {
 
   constructor(private http: HttpClient) {}
 
-  ObtenerSupport(): Observable<Support[]> {
+  getSupport(): Observable<Support[]> {
     return this.http.get<Support[]>(this.ruta)
   }
 }

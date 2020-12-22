@@ -13,12 +13,12 @@ export class SettingsComponent implements OnInit {
   constructor(private settingInjectado: SettingsService) {}
 
   ngOnInit(): void {
-    this.insectarSettings()
+    this.settingInjection()
   }
 
-  insectarSettings() {
+  settingInjection() {
     this.loading = true
-    this.settingInjectado.leerSettings().subscribe((settingsdesdeapi) => {
+    this.settingInjectado.getSetting().subscribe((settingsdesdeapi) => {
       this.settings = settingsdesdeapi
       this.loading = false
     })

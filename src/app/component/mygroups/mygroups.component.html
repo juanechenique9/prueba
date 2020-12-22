@@ -16,7 +16,7 @@
     <div class="head">
       <div class="titulo1">Carrier Group List</div>
       <div class="titulo2">
-        <a (click)="agregarGrupo()"
+        <a (click)="addGroup()"
           >Add new group<img
             src="assets/img/add.jpg"
             alt="image"
@@ -34,7 +34,7 @@
             type="text"
             placeholder="Search groups by name"
             aria-label="Search"
-            (input)="buscarGrupo($event)"
+            (input)="searchGroup($event)"
           />
         </form>
       </nav>
@@ -75,8 +75,8 @@
 
         <tr
           *ngFor="
-            let grupo of copygrupos
-              | paginate: { itemsPerPage: 4, currentPage: p };
+            let grupo of copyGroups
+              | paginate: { itemsPerPage: 4, currentPage: paginador };
             let i = index
           "
         >
@@ -85,7 +85,7 @@
             <div *ngIf="isEditable[i]">
               <input
                 type="text"
-                (blur)="editarGrupo()"
+                (blur)="editGroup()"
                 [(ngModel)]="grupo.name"
                 class="form-control"
                 [value]="grupo.name"
@@ -98,7 +98,7 @@
             <div *ngIf="isEditable[i]">
               <input
                 type="text"
-                (blur)="editarGrupo()"
+                (blur)="editGroup()"
                 [(ngModel)]="grupo.descripcion"
                 class="form-control"
                 [value]="grupo.descripcion"
@@ -112,7 +112,7 @@
             /></a>
           </td>
           <td>
-            <a (click)="editarGrupo(i)">
+            <a (click)="editGroup(i)">
               Edit Group<img
                 src="assets/img/editar.svg"
                 alt="image"
@@ -121,7 +121,7 @@
             /></a>
           </td>
           <td>
-            <a (click)="eliminarGrupo(grupo.id)"
+            <a (click)="deleteGroup(grupo.id)"
               >Delete Group<img
                 src="assets/img/delete.svg"
                 alt="image"

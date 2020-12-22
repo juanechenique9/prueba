@@ -10,58 +10,58 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
   styleUrls: ['./mygroups.component.css'],
 })
 export class MygroupsComponent implements OnInit {
-  grupos: Array<Grupos> = new Array<Grupos>()
-  copygrupos: Array<Grupos> = new Array<Grupos>()
+  groups: Array<Grupos> = new Array<Grupos>()
+  copyGroups: Array<Grupos> = new Array<Grupos>()
   loading: boolean
   isEditable = []
 
   bsModalRef: BsModalRef
-  p: number
+  paginador: number
   itemsPerPage = 4
 
   @ViewChild('enfocarNombre') enfocarNombre: any
 
   constructor(
-    private grupoInjectado: GruposdeService,
+    private groupInjection: GruposdeService,
     private modalService: BsModalService,
     private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.insertar()
+    this.groupService()
   }
 
-  insertar() {
+  groupService() {
     this.loading = true
-    this.grupoInjectado.LeerGrupos().subscribe(
-      (gruposdesdeapi) => {
-        this.grupos = gruposdesdeapi
-        this.copygrupos = gruposdesdeapi
+    this.groupInjection.getGroup().subscribe(
+      (groupapi) => {
+        this.groups = groupapi
+        this.copyGroups = groupapi
         this.loading = false
       },
       (error) => console.error(error)
     )
   }
 
-  buscarGrupo(event) {
-    const nombreGrupo: string = event.target.value
+  searchGroup(event) {
+    const nameGroup: string = event.target.value
 
-    if (nombreGrupo === '') {
-      this.copygrupos = this.grupos
+    if (nameGroup === '') {
+      this.copyGroups = this.groups
     } else {
-      this.copygrupos = this.grupos.filter((v) => {
-        return v.name.toLowerCase().includes(nombreGrupo)
+      this.copyGroups = this.groups.filter((v) => {
+        return v.name.toLowerCase().includes(nameGroup)
       })
     }
   }
 
-  eliminarGrupo(id) {
-    this.copygrupos = this.copygrupos.filter((k) => {
+  deleteGroup(id) {
+    this.copyGroups = this.copyGroups.filter((k) => {
       return k.id !== id
     })
   }
 
-  editarGrupo(i: number) {
+  editGroups(i: number) {
     this.isEditable = []
     this.isEditable[i] = !this.isEditable[i]
     this.cd.detectChanges()
@@ -69,11 +69,11 @@ export class MygroupsComponent implements OnInit {
   }
 
   handlePageChange(event) {
-    this.p = event
+    this.paginador = event
     this.isEditable = []
   }
 
-  agregarGrupo() {
+  addGroup() {
     const initialState = {
       title: 'Agregar',
     }
@@ -85,7 +85,7 @@ export class MygroupsComponent implements OnInit {
     this.bsModalRef.content.data.subscribe((result) => {
       console.log('results', result)
 
-      this.copygrupos.push(result)
+      this.copyGroups.push(result)
     })
   }
 }

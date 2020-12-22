@@ -7,7 +7,7 @@ import { Subject } from 'rxjs'
 @Component({
   selector: 'app-grupo-agregar',
   templateUrl: './grupo-agregar.component.html',
-  styleUrls: ['./grupo-agregar.component.css']
+  styleUrls: ['./grupo-agregar.component.css'],
 })
 export class GrupoAgregarComponent implements OnInit {
   forma: FormGroup
@@ -15,21 +15,20 @@ export class GrupoAgregarComponent implements OnInit {
   closeBtnName: string
   public data: Subject<any>
 
-  constructor (public fb: FormBuilder, public bsModalRef: BsModalRef) {
+  constructor(public fb: FormBuilder, public bsModalRef: BsModalRef) {
     this.forma = fb.group({
-
       id: Math.random(),
 
       name: '',
-      descripcion: ''
+      descripcion: '',
     })
   }
 
-  ngOnInit (): void {
+  ngOnInit(): void {
     this.data = new Subject()
   }
 
-  agregarGrupos () {
+  addGroups() {
     console.log(this.forma.value)
 
     this.data.next(this.forma.value)

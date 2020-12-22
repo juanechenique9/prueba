@@ -8,18 +8,18 @@ import { SoporteService } from 'src/app/services/soporte.service'
   styleUrls: ['./support.component.css'],
 })
 export class SupportComponent implements OnInit {
-  soporte: Array<Support> = new Array<Support>()
+  support: Array<Support> = new Array<Support>()
   loading: boolean
-  constructor(private soporteInjectado: SoporteService) {}
+  constructor(private supportInjection: SoporteService) {}
 
   ngOnInit(): void {
-    this.mostrarSoporte()
+    this.supportService()
   }
 
-  mostrarSoporte() {
+  supportService() {
     this.loading = true
-    this.soporteInjectado.ObtenerSupport().subscribe((soportedesdeapi) => {
-      this.soporte = soportedesdeapi
+    this.supportInjection.getSupport().subscribe((supportApi) => {
+      this.support = supportApi
       this.loading = false
     })
   }

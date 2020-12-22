@@ -12,7 +12,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerDash(): Observable<Dashboard[]> {
+  getDash(): Observable<Dashboard[]> {
     return this.http.get<Dashboard[]>(this.ruta)
   }
 }

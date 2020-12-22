@@ -27,7 +27,7 @@
                 type="text"
                 placeholder="Carrier name, DOT number"
                 aria-label="Search"
-                (input)="buscarCarrier($event)"
+                (input)="searchCarrier($event)"
               />
             </form>
           </nav>
@@ -56,7 +56,7 @@
 
         <div
           class="GestorCarrier"
-          *ngFor="let habilidade of copyHabilidades; let i = index"
+          *ngFor="let habilidade of copyCarriers; let i = index"
         >
           <div class="Divtitulo">
             <div class="Encabezadotitulo">
@@ -212,7 +212,7 @@
           <div class="head">
             <div class="titulo1">Search for a Carrier Document</div>
             <div class="titulo2">
-              <a (click)="agregarDocuments()"
+              <a (click)="addDocuments()"
                 >Add Document<img
                   src="assets/img/add.jpg"
                   alt="image"
@@ -231,7 +231,7 @@
                   type="text"
                   placeholder="Carrier name, DOT number"
                   aria-label="Search"
-                  (input)="buscarDms($event)"
+                  (input)="searchDms($event)"
                 />
               </form>
             </nav>
@@ -270,7 +270,7 @@
 
               <tr
                 *ngFor="
-                  let documentos of copiDms
+                  let documentos of copyDms
                     | paginate: { itemsPerPage: 4, currentPage: e };
                   let p = index
                 "

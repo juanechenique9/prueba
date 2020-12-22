@@ -11,103 +11,103 @@ import { ChartType } from 'chart.js'
 export class DashboardComponent implements OnInit {
   dashboard: Array<Dashboard> = []
   loading: boolean
-  etiquetasDona
-  tipos
-  tipoSafety
-  datosDona
+  nameFleet
+  typeFleet
+  dataFleet
+  typeSafety
   etiquetasLinea
-  tipoLinea
-  datosLinea
-  datosTrend
-  arregloLinea
+  typeRated
+  dataRated
+  dataReport
+  DateRated
+  dateTrend
   lineChartLegend
-  datosSafety
-  etiquetasSafety
-  datoStatus
-  etiquetaStatus
-  tipoStatus
+  dataSafety
+  typeTrend
+  labelSafety
+  dataStatus
+  nameStatus
+  typeStatus
   tipoBasic
 
-  constructor(private dashInjectado: DashboardService) {}
+  constructor(private dashInjection: DashboardService) {}
 
   ngOnInit() {
-    this.insertarDash()
+    this.dashService()
   }
 
-  insertarDash() {
+  dashService() {
     try {
       this.loading = true
-      this.dashInjectado
-        .obtenerDash()
-        .subscribe((dashdesdeapi: Array<Dashboard>) => {
-          this.dashboard.push(dashdesdeapi[0])
-          this.dona()
-          this.graficaLinea()
-          this.graficaSafety()
-          this.graficaStatus()
-          this.graficaTrend()
-          this.graficaMapa()
-          this.loading = false
-        })
+      this.dashInjection.getDash().subscribe((dashApi: Array<Dashboard>) => {
+        this.dashboard.push(dashApi[0])
+        this.fleetSizes()
+        this.ratedCarriers()
+        this.carriersSafety()
+        this.carrierStatus()
+        this.trendReport()
+        this.scoreMean()
+        this.loading = false
+      })
     } catch (error) {}
   }
 
-  dona() {
-    let descripcionDona = this.dashboard[0].fleetSizes.map((d) => {
+  fleetSizes() {
+    let labelFleet = this.dashboard[0].fleetSizes.map((d) => {
       return d.name
     })
-    let valorDona = this.dashboard[0].fleetSizes.map((o) => {
+    let valueFleet = this.dashboard[0].fleetSizes.map((o) => {
       return o.value
     })
 
-    this.etiquetasDona = descripcionDona
-    this.tipos = 'doughnut'
-    this.datosDona = valorDona
+    this.nameFleet = labelFleet
+    this.typeFleet = 'doughnut'
+    this.dataFleet = valueFleet
   }
 
-  graficaLinea() {
-    let descripcionSatisfactory = this.dashboard[0].ratedSatis.map((x) => {
+  ratedCarriers() {
+    let nameSatisfactory = this.dashboard[0].ratedSatis.map((x) => {
       return x.name
     })
 
-    let descripcionUnrated = this.dashboard[0].ratedUnra.map((x) => {
+    let nameUnrated = this.dashboard[0].ratedUnra.map((x) => {
       return x.name
     })
 
-    let descripcionConditional = this.dashboard[0].ratedCondicion.map((x) => {
+    let nameConditional = this.dashboard[0].ratedCondicion.map((x) => {
       return x.name
     })
 
-    let descripcionUnsatisfactory = this.dashboard[0].ratedUnsatis.map((x) => {
+    let nameUnsatisfactory = this.dashboard[0].ratedUnsatis.map((x) => {
       return x.name
     })
 
-    let valorSatisfactory = this.dashboard[0].ratedSatisfactory.map((x) => {
+    let valueSatisfactory = this.dashboard[0].ratedSatisfactory.map((x) => {
       return x.value
     })
 
-    let valorUnrated = this.dashboard[0].ratedUnrated.map((x) => {
+    let valueUnrated = this.dashboard[0].ratedUnrated.map((x) => {
       return x.value
     })
 
-    let valorConditional = this.dashboard[0].ratedConditional.map((x) => {
+    let valueConditional = this.dashboard[0].ratedConditional.map((x) => {
       return x.value
     })
 
-    let valorUnsatisfactory = this.dashboard[0].ratedUnsatisfactory.map((x) => {
+    let valueUnsatisfactory = this.dashboard[0].ratedUnsatisfactory.map((x) => {
       return x.value
     })
 
-    this.datosLinea = [
-      { data: valorSatisfactory, label: descripcionSatisfactory },
-      { data: valorUnrated, label: descripcionUnrated },
-      { data: valorConditional, label: descripcionConditional },
-      { data: valorUnsatisfactory, label: descripcionUnsatisfactory },
+    this.dataRated = [
+      { data: valueSatisfactory, label: nameSatisfactory },
+      { data: valueUnrated, label: nameUnrated },
+      { data: valueConditional, label: nameConditional },
+      { data: valueUnsatisfactory, label: nameUnsatisfactory },
     ]
 
-    this.tipoLinea = 'line'
+    this.typeRated = 'line'
 
-    this.arregloLinea = [
+    this.DateRated = [
       'Jan',
       'Feb',
       'Mar',
@@ -123,35 +123,35 @@ export class DashboardComponent implements OnInit {
     ]
   }
 
-  graficaSafety() {
-    let valorSafety = this.dashboard[0].MyCarrierSafety.map((h) => {
+  carriersSafety() {
+    let valueSafety = this.dashboard[0].MyCarrierSafety.map((h) => {
       return h.value
     })
-    let descripcionSafety = this.dashboard[0].MyCarrierSafety.map((i) => {
+    let nameSafety = this.dashboard[0].MyCarrierSafety.map((i) => {
       return i.name
     })
-    this.tipoSafety = 'doughnut'
+    this.typeSafety = 'doughnut'
 
-    this.datosSafety = valorSafety
-    this.etiquetasSafety = descripcionSafety
+    this.dataSafety = valueSafety
+    this.labelSafety = nameSafety
   }
 
-  graficaStatus() {
-    let descripcionStatus = this.dashboard[0].carrierStatus.map((v) => {
+  carrierStatus() {
+    let labelStatus = this.dashboard[0].carrierStatus.map((v) => {
       return v.name
     })
 
-    let valorStatus = this.dashboard[0].carrierStatus.map((b) => {
+    let valueStatus = this.dashboard[0].carrierStatus.map((b) => {
       return b.value
     })
 
-    this.datoStatus = valorStatus
-    this.etiquetaStatus = descripcionStatus
-    this.tipoStatus = 'doughnut'
+    this.dataStatus = valueStatus
+    this.nameStatus = labelStatus
+    this.typeStatus = 'doughnut'
   }
 
-  graficaTrend() {
-    this.arregloLinea = [
+  trendReport() {
+    this.dateTrend = [
       'Jan',
       'Feb',
       'Mar',
@@ -166,63 +166,63 @@ export class DashboardComponent implements OnInit {
       'Dec',
     ]
 
-    this.tipoLinea = 'line'
+    this.typeTrend = 'line'
 
-    let descripcionDriving = this.dashboard[0].trendDriving.map((x) => {
+    let labelDriving = this.dashboard[0].trendDriving.map((x) => {
       return x.name
     })
 
-    let descripcionCompliance = this.dashboard[0].trendCompliance.map((x) => {
+    let labelCompliance = this.dashboard[0].trendCompliance.map((x) => {
       return x.name
     })
 
-    let descripcionVehicle = this.dashboard[0].trendVehicle.map((x) => {
+    let labelVehicle = this.dashboard[0].trendVehicle.map((x) => {
       return x.name
     })
 
-    let descripcionSubstances = this.dashboard[0].ratedSubstances.map((x) => {
+    let labelSubstances = this.dashboard[0].ratedSubstances.map((x) => {
       return x.name
     })
 
-    let descripcionFitness = this.dashboard[0].ratedFitness.map((x) => {
+    let labelFitness = this.dashboard[0].ratedFitness.map((x) => {
       return x.name
     })
 
-    this.datosTrend = [
-      { data: '', label: descripcionDriving },
-      { data: '', label: descripcionCompliance },
-      { data: '', label: descripcionVehicle },
-      { data: '', label: descripcionSubstances },
-      { data: '', label: descripcionFitness },
+    this.dataReport = [
+      { data: '', label: labelDriving },
+      { data: '', label: labelCompliance },
+      { data: '', label: labelVehicle },
+      { data: '', label: labelSubstances },
+      { data: '', label: labelFitness },
     ]
   }
 
-  graficaMapa() {
-    let descripcionUnsafe = this.dashboard[0].basicUnsafe.map((x) => {
+  scoreMean() {
+    let labelUnsafe = this.dashboard[0].basicUnsafe.map((x) => {
       return x.name
     })
 
-    let valorUnsafe = this.dashboard[0].basicUnsafeValue.map((x) => {
+    let valueUnsafe = this.dashboard[0].basicUnsafeValue.map((x) => {
       return x.value
     })
 
-    let descripcionHOS = this.dashboard[0].basicHOS.map((x) => {
+    let labelHOS = this.dashboard[0].basicHOS.map((x) => {
       return x.name
     })
 
-    let valorHOS = this.dashboard[0].basicHOSValue.map((x) => {
+    let valueHOS = this.dashboard[0].basicHOSValue.map((x) => {
       return x.value
     })
 
-    let descripcionVehiculo = this.dashboard[0].basicVehicle.map((x) => {
+    let labelVehicle = this.dashboard[0].basicVehicle.map((x) => {
       return x.name
     })
 
-    let valorVehicle = this.dashboard[0].basicVehicleValue.map((x) => {
+    let valueVehicle = this.dashboard[0].basicVehicleValue.map((x) => {
       return x.value
     })
 
-    let descripcionControlled = this.dashboard[0].basicControlled.map((x) => {
+    let labelControlled = this.dashboard[0].basicControlled.map((x) => {
       return x.name
     })
 
@@ -230,7 +230,7 @@ export class DashboardComponent implements OnInit {
       return x.value
     })
 
-    let descripcionDriver = this.dashboard[0].basicDriver.map((x) => {
+    let labelDriver = this.dashboard[0].basicDriver.map((x) => {
       return x.name
     })
 
@@ -272,23 +272,23 @@ export class DashboardComponent implements OnInit {
           name: 'January',
           data: [
             {
-              x: descripcionUnsafe,
-              y: valorUnsafe,
+              x: labelUnsafe,
+              y: valueUnsafe,
             },
             {
-              x: descripcionHOS,
-              y: valorHOS,
+              x: labelHOS,
+              y: valueHOS,
             },
             {
-              x: descripcionVehiculo,
-              y: valorVehicle,
+              x: labelVehicle,
+              y: valueVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueDriver,
             },
           ],
@@ -297,23 +297,23 @@ export class DashboardComponent implements OnInit {
           name: 'February',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -322,23 +322,23 @@ export class DashboardComponent implements OnInit {
           name: 'March',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -347,23 +347,23 @@ export class DashboardComponent implements OnInit {
           name: 'April',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -372,23 +372,23 @@ export class DashboardComponent implements OnInit {
           name: 'May',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -397,23 +397,23 @@ export class DashboardComponent implements OnInit {
           name: 'June',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -422,23 +422,23 @@ export class DashboardComponent implements OnInit {
           name: 'July',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -447,23 +447,23 @@ export class DashboardComponent implements OnInit {
           name: 'August',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -472,23 +472,23 @@ export class DashboardComponent implements OnInit {
           name: 'September',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -497,23 +497,23 @@ export class DashboardComponent implements OnInit {
           name: 'October',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -522,23 +522,23 @@ export class DashboardComponent implements OnInit {
           name: 'November',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],
@@ -547,23 +547,23 @@ export class DashboardComponent implements OnInit {
           name: 'December',
           data: [
             {
-              x: descripcionUnsafe,
+              x: labelUnsafe,
               y: valueSecondUnsafe,
             },
             {
-              x: descripcionHOS,
+              x: labelHOS,
               y: valueSecondHos,
             },
             {
-              x: descripcionVehiculo,
+              x: labelVehicle,
               y: valueSecondVehicle,
             },
             {
-              x: descripcionControlled,
+              x: labelControlled,
               y: valueSecondControlled,
             },
             {
-              x: descripcionDriver,
+              x: labelDriver,
               y: valueSecondDriver,
             },
           ],

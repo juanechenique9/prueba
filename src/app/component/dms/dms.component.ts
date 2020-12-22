@@ -12,10 +12,10 @@ import { DmsAgregarComponent } from 'src/app/component/dms/dms-agregar.component
   styleUrls: ['./dms.component.css'],
 })
 export class DMSComponent implements OnInit {
-  habilidades: Array<Habilidades> = new Array<Habilidades>()
-  copyHabilidades: Array<Habilidades> = new Array<Habilidades>()
+  carriers: Array<Habilidades> = new Array<Habilidades>()
+  copyCarriers: Array<Habilidades> = new Array<Habilidades>()
   dms: Array<listaCarrier> = new Array<listaCarrier>()
-  copiDms: Array<listaCarrier> = new Array<listaCarrier>()
+  copyDms: Array<listaCarrier> = new Array<listaCarrier>()
   isEditado = []
   bsModalRef: BsModalRef
   e: number
@@ -28,24 +28,22 @@ export class DMSComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.injectar()
-    this.mostrarDms()
+    this.carrierInjection()
+    this.dmsInjection()
   }
 
   verifyDocuments() {
-    this.copyHabilidades.forEach((habilidad) => {
-      habilidad.verified = habilidad.dms.every(
-        (document) => document.status === 'Request'
-      )
+    this.copyCarriers.forEach((x) => {
+      x.verified = x.dms.every((document) => document.status === 'Request')
     })
   }
 
-  cambiarEstado(id: number, id_demo: number) {
-    this.copyHabilidades.map((copi) => {
-      if (copi.id == id) {
-        return copi.dms.map((mensaje) => {
-          if (mensaje.id_demo == id_demo) {
-            return (mensaje.status = 'Request')
+  changeState(id: number, id_demo: number) {
+    this.copyCarriers.map((x) => {
+      if (x.id == id) {
+        return x.dms.map((z) => {
+          if (z.id_demo == id_demo) {
+            return (z.status = 'Request')
           }
         })
       }
@@ -53,12 +51,12 @@ export class DMSComponent implements OnInit {
     this.verifyDocuments() // updateVerification
   }
 
-  injectar(nombre?: string) {
+  carrierInjection(nombre?: string) {
     this.loading = true
     this.CarrierInjectado.leerNoticias().subscribe(
-      (habilidadesdesdeapi) => {
-        this.copyHabilidades = habilidadesdesdeapi
-        this.habilidades = habilidadesdesdeapi
+      (carrierApi) => {
+        this.copyCarriers = carrierApi
+        this.copyCarriers = carrierApi
         this.loading = false
         this.verifyDocuments()
       },
@@ -66,21 +64,21 @@ export class DMSComponent implements OnInit {
     )
   }
 
-  mostrarDms() {
-    this.DmsInjectado.leerDms().subscribe((dmsdesdeapi) => {
-      this.copiDms = dmsdesdeapi
-      this.dms = dmsdesdeapi
+  dmsInjection() {
+    this.DmsInjectado.leerDms().subscribe((dmsApi) => {
+      this.copyDms = dmsApi
+      this.dms = dmsApi
     })
   }
 
-  buscarDms(event) {
-    let buscarDocumento: string = event.target.value
+  searchDms(event) {
+    let searchDocument: string = event.target.value
 
-    if (buscarDocumento == ' ') {
-      this.copiDms = this.dms
+    if (searchDocument == ' ') {
+      this.copyDms = this.dms
     } else {
-      this.copiDms = this.dms.filter((v) => {
-        return v.documentName.toLocaleLowerCase().includes(buscarDocumento)
+      this.copyDms = this.dms.filter((v) => {
+        return v.documentName.toLocaleLowerCase().includes(searchDocument)
       })
     }
   }
@@ -91,19 +89,19 @@ export class DMSComponent implements OnInit {
     this.isEditado[p] = !this.isEditado[p]
   }
 
-  buscarCarrier(event) {
-    let nombreBuscar: string = event.target.value
+  searchCarrier(event) {
+    let searchName: string = event.target.value
 
-    if (nombreBuscar === '') {
-      this.copyHabilidades = this.habilidades
+    if (searchName === '') {
+      this.copyCarriers = this.carriers
     } else {
-      this.copyHabilidades = this.habilidades.filter((x) => {
-        return x.titulo.toLowerCase().includes(nombreBuscar)
+      this.copyCarriers = this.carriers.filter((x) => {
+        return x.titulo.toLowerCase().includes(searchName)
       })
     }
   }
 
-  agregarDocuments() {
+  addDocuments() {
     const initialState = {
       title: 'Agregar',
     }
@@ -115,7 +113,7 @@ export class DMSComponent implements OnInit {
     this.bsModalRef.content.data.subscribe((result) => {
       console.log('results', result)
 
-      this.copiDms.push(result)
+      this.copyDms.push(result)
     })
   }
 

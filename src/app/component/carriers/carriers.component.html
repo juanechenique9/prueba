@@ -36,7 +36,7 @@
           <form class="form-inline">
             <input
               class="form-control4"
-              (input)="buscarCarriers($event)"
+              (input)="searchCarriers($event)"
               type="text"
               placeholder="Carrier Name, DOT#, MC#"
               aria-label="Search"
@@ -57,13 +57,13 @@
 
         <div class="form-group">
           <select
-            [(ngModel)]="selectedLista.id"
-            (change)="onSelect($event.target.value)"
+            [(ngModel)]="selectedList.id"
+            (change)="selectFilter($event.target.value)"
             class="form-control"
             id="exampleFormControlSelect1"
           >
             <option
-              *ngFor="let listica of listarNombre"
+              *ngFor="let listica of  listName"
               value="{{ listica.id }}"
             >
               {{ listica.nombre }}
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="contenedor" *ngFor="let habilidade of copyHabilidades">
+    <div class="contenedor" *ngFor="let habilidade of copyCarriers">
       <div class="row">
         <div class="col-1">
           <a class="circulo">{{ habilidade.titulo | cambiar }}</a>

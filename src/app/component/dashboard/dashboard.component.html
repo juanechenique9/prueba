@@ -24,9 +24,9 @@
            
             <div >
               <canvas baseChart width="400" height="300"
-              [data]="datosDona"
-              [labels]="etiquetasDona"
-              [chartType]="tipos">
+              [data]="dataFleet"
+              [labels]="nameFleet"
+              [chartType]="typeFleet">
             </canvas>
             </div>
 
@@ -39,9 +39,9 @@
             <h6 class="card-title">{{ carrier.name }}</h6>
             <div >
               <canvas baseChart width="400" height="300"
-              [data]="datosSafety"
-              [labels]="etiquetasSafety"
-              [chartType]="tipoSafety">
+              [data]="dataSafety"
+              [labels]="labelSafety"
+              [chartType]="typeSafety">
             </canvas>
             </div>
           </div>
@@ -54,9 +54,9 @@
             <h6 class="card-title">{{ status.name }}</h6>
             <div>
               <canvas baseChart width="600" height="350"
-              [data]="datoStatus"
-              [labels]="etiquetaStatus"
-              [chartType]="tipoStatus">
+              [data]="dataStatus"
+              [labels]="nameStatus"
+              [chartType]="typeStatus">
             </canvas>
           </div>
           </div>
@@ -98,10 +98,10 @@
             <h6 class="card-title">{{ rated.name }}</h6>
             <div>
               <canvas baseChart width="400" height="450"
-              [datasets]="datosLinea"
-                [labels]="arregloLinea"
+              [datasets]="dataRated"
+                [labels]="DateRated"
                 [legend]="lineChartLegend"
-                [chartType]="tipoLinea">
+                [chartType]="typeRated">
               </canvas>
            </div>
             </div>
@@ -114,10 +114,10 @@
             <h6 class="card-title">{{ report.name }}</h6>
             <div>
               <canvas baseChart width="400" height="450"
-              [datasets]="datosTrend"
-                [labels]="arregloLinea"
+              [datasets]="dataReport"
+                [labels]="dateTrend"
                 [legend]="lineChartLegend"
-                [chartType]="tipoLinea">
+                [chartType]="typeTrend">
               </canvas>
            </div>
           </div>

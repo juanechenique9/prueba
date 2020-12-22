@@ -27,7 +27,7 @@ export class DmsAgregarComponent implements OnInit {
     this.data = new Subject()
   }
 
-  agregarDocumentos() {
+  addDocuments() {
     console.log(this.forma.value)
 
     this.data.next(this.forma.value)

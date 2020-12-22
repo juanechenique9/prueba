@@ -13,7 +13,7 @@ export class SettingsService {
 
   constructor(private http: HttpClient) {}
 
-  leerSettings(): Observable<Settings[]> {
+  getSetting(): Observable<Settings[]> {
     return this.http.get<Settings[]>(this.ruta)
   }
 }
