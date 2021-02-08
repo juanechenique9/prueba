@@ -18,16 +18,16 @@ export class CarriersComponent implements OnInit {
   loading: boolean
 
   constructor(
-    private CarrierInjectado: CarriersService,
+    private CarrierInjection: CarriersService,
     private dataSvc: ListaService
   ) {}
 
   ngOnInit() {
     this.carrierService()
-    this.filter()
+    this.filterQualified()
   }
 
-  filter() {
+  filterQualified() {
     this.listName = this.dataSvc.getListar()
   }
 
@@ -52,10 +52,10 @@ export class CarriersComponent implements OnInit {
    */
   carrierService(nombre?: string) {
     this.loading = true
-    this.CarrierInjectado.leerNoticias().subscribe(
-      (carrierApi) => {
-        this.copyCarriers = carrierApi
-        this.carriers = carrierApi
+    this.CarrierInjection.getCarriers().subscribe(
+      (carrierList) => {
+        this.copyCarriers = carrierList
+        this.carriers = carrierList
         this.loading = false
       },
       (error) => console.log(error)

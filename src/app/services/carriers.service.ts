@@ -11,7 +11,7 @@ export class CarriersService {
   habilidades: Habilidades = new Habilidades()
   constructor(private http: HttpClient) {}
 
-  leerNoticias(): Observable<Habilidades[]> {
+  getCarriers(): Observable<Habilidades[]> {
     return this.http.get<Habilidades[]>(
       'https://run.mocky.io/v3/721c5a5d-cfb2-41aa-a545-1ad74230b324'
     )

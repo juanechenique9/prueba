@@ -13,7 +13,7 @@ export class GruposdeService {
 
   constructor(private http: HttpClient) {}
 
-  getGroup(): Observable<Grupos[]> {
-    return this.http.get<Grupos[]>(this.ruta)
+  getGroup() {
+    return this.http.get(this.ruta)
   }
 }

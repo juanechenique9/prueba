@@ -11,7 +11,7 @@ export class DmsService {
 
   constructor(private http: HttpClient) {}
 
-  leerDms(): Observable<listaCarrier[]> {
+  getDms(): Observable<listaCarrier[]> {
     return this.http.get<listaCarrier[]>(this.ruta)
   }
 }

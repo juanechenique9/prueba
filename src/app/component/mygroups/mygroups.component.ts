@@ -10,8 +10,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
   styleUrls: ['./mygroups.component.css'],
 })
 export class MygroupsComponent implements OnInit {
-  groups: Array<Grupos> = new Array<Grupos>()
-  copyGroups: Array<Grupos> = new Array<Grupos>()
+  groups
+  copyGroups
   loading: boolean
   isEditable = []
 
@@ -22,7 +22,7 @@ export class MygroupsComponent implements OnInit {
   @ViewChild('enfocarNombre') enfocarNombre: any
 
   constructor(
-    private groupInjection: GruposdeService,
+    public groupInjection: GruposdeService,
     private modalService: BsModalService,
     private cd: ChangeDetectorRef
   ) {}
@@ -34,9 +34,9 @@ export class MygroupsComponent implements OnInit {
   groupService() {
     this.loading = true
     this.groupInjection.getGroup().subscribe(
-      (groupapi) => {
-        this.groups = groupapi
-        this.copyGroups = groupapi
+      (groupList) => {
+        this.groups = groupList
+        this.copyGroups = groupList
         this.loading = false
       },
       (error) => console.error(error)

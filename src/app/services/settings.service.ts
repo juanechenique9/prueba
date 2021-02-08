@@ -13,7 +13,7 @@ export class SettingsService {
 
   constructor(private http: HttpClient) {}
 
-  getSetting(): Observable<Settings[]> {
-    return this.http.get<Settings[]>(this.ruta)
+  getSetting() {
+    return this.http.get(this.ruta)
   }
 }

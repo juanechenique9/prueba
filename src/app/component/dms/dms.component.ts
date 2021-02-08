@@ -53,10 +53,10 @@ export class DMSComponent implements OnInit {
 
   carrierInjection(nombre?: string) {
     this.loading = true
-    this.CarrierInjectado.leerNoticias().subscribe(
-      (carrierApi) => {
-        this.copyCarriers = carrierApi
-        this.copyCarriers = carrierApi
+    this.CarrierInjectado.getCarriers().subscribe(
+      (carrierList) => {
+        this.copyCarriers = carrierList
+        this.copyCarriers = carrierList
         this.loading = false
         this.verifyDocuments()
       },
@@ -65,9 +65,9 @@ export class DMSComponent implements OnInit {
   }
 
   dmsInjection() {
-    this.DmsInjectado.leerDms().subscribe((dmsApi) => {
-      this.copyDms = dmsApi
-      this.dms = dmsApi
+    this.DmsInjectado.getDms().subscribe((dmsList) => {
+      this.copyDms = dmsList
+      this.dms = dmsList
     })
   }
 
