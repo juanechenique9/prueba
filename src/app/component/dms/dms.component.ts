@@ -51,17 +51,13 @@ export class DMSComponent implements OnInit {
     this.verifyDocuments() // updateVerification
   }
 
-  carrierInjection(nombre?: string) {
+  carrierInjection() {
     this.loading = true
-    this.CarrierInjectado.getCarriers().subscribe(
-      (carrierList) => {
-        this.copyCarriers = carrierList
-        this.copyCarriers = carrierList
-        this.loading = false
-        this.verifyDocuments()
-      },
-      (error) => console.log(error)
-    )
+    this.CarrierInjectado.getCarriers().subscribe((carrierList) => {
+      this.carriers = carrierList
+      this.copyCarriers = carrierList
+      this.loading = false
+    })
   }
 
   dmsInjection() {

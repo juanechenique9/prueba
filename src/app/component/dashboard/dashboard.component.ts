@@ -3,6 +3,9 @@ import { Dashboard } from 'src/app/model/dashboard'
 import { DashboardService } from 'src/app/services/dashboard.service'
 import { ChartType } from 'chart.js'
 import { Fleet } from 'src/app/model/fleet'
+import { Safety } from 'src/app/model/safety'
+import { carrierStatus } from 'src/app/model/carrierStatus'
+import { expiredDocument } from 'src/app/model/expiredDocument'
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +15,9 @@ import { Fleet } from 'src/app/model/fleet'
 export class DashboardComponent implements OnInit {
   dashboard: Array<Dashboard> = new Array<Dashboard>()
   fleet: Array<Fleet> = new Array<Fleet>()
+  safety: Array<Safety> = new Array<Safety>()
+  carrierstatus: Array<carrierStatus> = new Array<carrierStatus>()
+  expiredocument: Array<expiredDocument> = new Array<expiredDocument>()
   loading: boolean
   nameFleet
   typeFleet
@@ -37,6 +43,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.dashService()
     this.fleetService()
+    this.safetyService()
+    this.statusService()
+    this.expiredService()
   }
 
   dashService() {
@@ -56,6 +65,24 @@ export class DashboardComponent implements OnInit {
   fleetService() {
     this.dashInjection.getFleet().subscribe((fleetList) => {
       this.fleet = fleetList
+    })
+  }
+
+  safetyService() {
+    this.dashInjection.getSafety().subscribe((safetList) => {
+      this.safety = safetList
+    })
+  }
+
+  statusService() {
+    this.dashInjection.getCarrier().subscribe((statusList) => {
+      this.carrierstatus = statusList
+    })
+  }
+
+  expiredService() {
+    this.dashInjection.getExpired().subscribe((expiredList) => {
+      this.expiredocument = expiredList
     })
   }
 

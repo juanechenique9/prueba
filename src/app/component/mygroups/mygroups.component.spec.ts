@@ -1,35 +1,51 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing'
 import { GruposdeService } from 'src/app/services/gruposde.service'
 import { MygroupsComponent } from './mygroups.component'
 import { HttpClientModule } from '@angular/common/http'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 import { ModalModule } from 'ngx-bootstrap/modal'
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
+import { NgxPaginationModule } from 'ngx-pagination'
 import { of } from 'rxjs'
+import { Grupos } from 'src/app/model/grupos'
+import { delay } from 'rxjs/operators'
 
-describe('when groupService() is called', () => {
+describe('Groups Component', () => {
   let component: MygroupsComponent
   let fixture: ComponentFixture<MygroupsComponent>
-  const formBuilder: FormBuilder = new FormBuilder()
+  let groups: Grupos
+  let groupInjection: GruposdeService
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, ModalModule.forRoot(), ReactiveFormsModule],
+      imports: [HttpClientModule, ModalModule.forRoot(), NgxPaginationModule],
       providers: [BsModalService, GruposdeService],
       declarations: [MygroupsComponent],
     }).compileComponents()
-  }))
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(MygroupsComponent)
     component = fixture.componentInstance
-    fixture.detectChanges()
+    groupInjection = TestBed.get(GruposdeService)
+    groups = new Grupos()
   })
 
-  it('All should  ', () => {
-    const groups = [1, 2, 3]
-    spyOn(component.groupInjection, 'getGroup').and.returnValue(of({ groups }))
+  fit('should test Groups ', fakeAsync(() => {
+    spyOn(groupInjection, 'getGroup').and.returnValue(
+      of([groups]).pipe(delay(1))
+    )
+
     component.groupService()
-    expect(component.groups).toEqual(groups)
-  })
+
+    expect(component.groups).toEqual([])
+    expect(groupInjection.getGroup).toHaveBeenCalledWith()
+
+    tick(1)
+
+    expect(component.groups).toEqual([groups])
+  }))
 })

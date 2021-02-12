@@ -51,7 +51,7 @@ import { SortablejsModule } from 'ngx-sortablejs'
 import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { ScrollingModule } from '@angular/cdk/scrolling'
-import {NgApexchartsModule} from 'ng-apexcharts';
+import { NgApexchartsModule } from 'ng-apexcharts'
 
 @NgModule({
   declarations: [
@@ -96,7 +96,7 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     NgxChartsModule,
     DragDropModule,
     ScrollingModule,
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
 
   entryComponents: [GrupoAgregarComponent],

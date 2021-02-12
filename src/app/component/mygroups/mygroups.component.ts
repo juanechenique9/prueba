@@ -10,8 +10,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
   styleUrls: ['./mygroups.component.css'],
 })
 export class MygroupsComponent implements OnInit {
-  groups
-  copyGroups
+  groups: Array<Grupos> = new Array<Grupos>()
+  copyGroups: Array<Grupos> = new Array<Grupos>()
   loading: boolean
   isEditable = []
 
